@@ -3,331 +3,460 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chiti V3 | Strategic Portfolio Architecture</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@500;700;800&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+    <title>Chiti Technologies | We Build Digital Experiences That Work</title>
+    <meta name="description" content="Chiti Technologies designs and develops high-performance digital products for enterprise and D2C brands. Results-driven, deadline-focused.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* Base Tokens */
         :root {
-            --space-3: 16px; --space-4: 24px; --space-8: 64px; --radius-sm: 6px; --radius-md: 12px; --radius-pill: 9999px;
-            --primary: hsl(260, 100%, 65%); --secondary: hsl(190, 100%, 50%);
-            --font-display: 'Outfit', sans-serif; --font-body: 'Inter', sans-serif; --font-mono: 'JetBrains Mono', monospace;
-            --semantic-success: hsl(150, 80%, 40%); --semantic-warning: hsl(35, 90%, 50%); --semantic-error: hsl(350, 80%, 55%);
-            --bg-base: hsl(220, 10%, 4%); --surface-1: hsl(220, 10%, 8%); --surface-2: hsl(220, 10%, 12%);
-            --text-main: hsl(0, 0%, 98%); --text-muted: hsl(220, 10%, 65%); --glass-border: rgba(255,255,255,0.08);
+            --primary: hsl(260, 100%, 65%);
+            --bg-base: hsl(220, 10%, 4%);
+            --surface-1: hsl(220, 10%, 8%);
+            --surface-2: hsl(220, 10%, 12%);
+            --text-main: hsl(0, 0%, 98%);
+            --text-muted: hsl(220, 10%, 65%);
+            --success: hsl(150, 80%, 40%);
+            --warning: hsl(35, 90%, 50%);
+            --border: rgba(255,255,255,0.1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; transition: all 150ms cubic-bezier(0.2, 0, 0.38, 0.9); }
-        body { background: var(--bg-base); color: var(--text-main); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; }
-        h1, h2, h3, h4 { font-family: var(--font-display); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            background: var(--bg-base); 
+            color: var(--text-main); 
+            font-family: 'Inter', sans-serif; 
+            line-height: 1.7; 
+            overflow-x: hidden; 
+        }
+        h1, h2, h3 { font-family: 'Outfit', sans-serif; }
 
-        /* Chiti Interaction Math (v3.1) */
-        .spring-ease { transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s; }
-        .spring-ease:hover { transform: translateY(-5px); }
-        
-        .section-reveal { opacity: 0; transform: translateY(30px); transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-        .section-reveal.active { opacity: 1; transform: translateY(0); }
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(10px);
+        }
+        .logo { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.2rem; }
+        .logo span { color: var(--primary); }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-main); }
+        .nav-cta {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
 
-        /* The Sticky Reading Progress Router Navigation */
-        .sticky-router { position: fixed; top: 0; left: 0; width: 100%; height: 60px; background: rgba(10, 10, 15, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid var(--glass-border); z-index: 1000; display: flex; align-items: center; justify-content: center; transform: translateY(-100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);}
-        .sticky-router.visible { transform: translateY(0); }
-        .router-track { display: flex; gap: var(--space-4); font-family: var(--font-mono); font-size: 0.85rem; }
-        .router-node { color: var(--text-muted); text-decoration: none; position: relative; padding: 8px 0; transition: 0.3s; }
-        .router-node:hover { color: var(--text-main); }
-        .router-node.active { color: var(--primary); font-weight: 700; }
-        .router-node.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: var(--primary); border-radius: 2px;}
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 20px 80px;
+            position: relative;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 30%, rgba(124, 58, 237, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            max-width: 900px;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
 
-        .container { max-width: 1400px; margin: 0 auto; padding: var(--space-8) var(--space-4); }
-        
-        .badge { background: rgba(124,58,237,0.15); color: var(--primary); padding: 4px 10px; border-radius: 4px; font-family: var(--font-mono); font-size: 0.8rem; display: inline-block; margin-bottom: var(--space-2); font-weight:700;}
-        
-        /* The Case Study Block */
-        section { scroll-margin-top: 100px; }
-        .case-study { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-bottom: 200px; align-items: stretch; }
-        @media(max-width: 1100px) { .case-study { grid-template-columns: 1fr; gap: 40px; } }
-        
-        .design-logic h2 { font-size: 2.8rem; margin-bottom: var(--space-3); }
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--surface-1);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 40px 20px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .stat-item h3 { font-size: 2.5rem; font-weight: 800; color: var(--primary); }
+        .stat-item p { color: var(--text-muted); font-size: 0.9rem; margin-top: 4px; }
 
-        /* Empirical Research Grids */
-        .empirical-block { background: rgba(255,255,255,0.02); border-left: 4px solid var(--primary); padding: 24px; margin-bottom: 24px; border-radius: 0 8px 8px 0; }
-        .empirical-block h4 { font-family: var(--font-mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); margin-bottom: 8px;}
+        /* Services */
+        .services {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-label {
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .service-card {
+            background: var(--surface-1);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            transition: all 0.3s;
+        }
+        .service-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(124, 58, 237, 0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        .service-card h3 { font-size: 1.2rem; margin-bottom: 12px; }
+        .service-card p { color: var(--text-muted); font-size: 0.95rem; }
 
-        /* Mockup Layouts */
-        .ui-mock-window { background: var(--surface-1); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); display:flex; flex-direction: column;}
-        .ui-header { background: var(--surface-2); padding: 12px var(--space-3); border-bottom: 1px solid var(--glass-border); display: flex; gap: 8px; align-items: center; }
-        .mac-dot { width: 10px; height: 10px; border-radius: 50%; background: #444; }
-        .ui-body { padding: var(--space-4); flex: 1; }
-        
-        /* The Chiti Discovery Sketch */
-        .empirical-sketch { background: #EAE6DB; width: 100%; border: 1px solid #ccc; border-radius: 4px; padding: 24px; font-family: 'Playfair Display', serif; color: #333; position:relative; overflow:hidden;}
-        .sharpie-line { height: 4px; background: #222; border-radius: 4px; border: 1px solid #000; box-shadow: 0 1px 2px rgba(0,0,0,0.2); margin-bottom: 12px;}
+        /* Work */
+        .work {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .work-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 120px;
+        }
+        .work-item:nth-child(even) { direction: rtl; }
+        .work-item:nth-child(even) > * { direction: ltr; }
+        .work-content h3 {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .work-content h2 { font-size: 2rem; margin-bottom: 20px; }
+        .work-content p { color: var(--text-muted); margin-bottom: 20px; }
+        .work-result {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin-top: 24px;
+        }
+        .work-result span { color: var(--success); font-weight: 700; font-size: 1.2rem; }
+        .work-result small { display: block; color: var(--text-muted); font-size: 0.85rem; margin-top: 4px; }
+        .work-visual {
+            background: var(--surface-1);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-        /* Mobile Device Frame */
-        .phone-mockup { width: 320px; height: 650px; background: var(--surface-1); border: 12px solid #111; border-radius: 40px; margin: 0 auto; box-shadow: 0 30px 60px rgba(0,0,0,0.6); position: relative; overflow: hidden; display: flex; flex-direction: column; }
-        
-        /* Interactive Card */
-        .chiti-card { background: var(--surface-2); padding: var(--space-3); border: 1px solid var(--glass-border); border-radius: var(--radius-md); text-align: center; margin-bottom: 16px; position:relative; cursor:pointer; transition:0.2s;}
-        .chiti-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(124,58,237,0.15);}
-        .status-chip { position:absolute; top:8px; right:8px; background: rgba(34,197,94,0.15); color: var(--semantic-success); border: 1px solid var(--semantic-success); font-family: var(--font-mono); font-size: 0.65rem; padding: 2px 6px; border-radius: var(--radius-pill); font-weight:700;}
+        /* Testimonials */
+        .testimonials {
+            background: var(--surface-1);
+            padding: 100px 20px;
+        }
+        .testimonials-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .testimonial-quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+        .testimonial-author { color: var(--primary); font-weight: 600; }
+        .testimonial-role { color: var(--text-muted); font-size: 0.9rem; }
 
-        .roi-badge { display:inline-block; padding: 12px 24px; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); color: var(--semantic-success); border-radius: var(--radius-pill); font-weight: 600; margin-top: 32px;}
+        /* CTA */
+        .cta {
+            padding: 100px 20px;
+            text-align: center;
+        }
+        .cta h2 { font-size: 2.5rem; margin-bottom: 16px; }
+        .cta p { color: var(--text-muted); margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
 
-        /* Hero Override */
-        .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative;}
-        .hero-bg { position: absolute; top:0; left:0; width:100%; height:100%; background: radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.1) 0%, transparent 60%); z-index:-1;}
-.hero h1 { font-size: 4.5rem; letter-spacing: -0.03em; margin-bottom: 16px; font-weight: 800;}
-.hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 640px; margin-bottom: 32px; line-height: 1.6;}
+        /* Footer */
+        footer {
+            background: var(--surface-1);
+            border-top: 1px solid var(--border);
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .work-item { grid-template-columns: 1fr; gap: 32px; direction: ltr !important; }
+            .work-item:nth-child(even) { direction: ltr; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- THE STICKY SYSTEM STATE ROUTER -->
-    <nav class="sticky-router" id="routerM">
-        <div class="router-track">
-            <a href="#case-netq" class="router-node">01. NetQ</a>
-            <span style="color:var(--surface-3);">/</span>
-            <a href="#case-bazaar" class="router-node">02. BazaarSetu</a>
-            <span style="color:var(--surface-3);">/</span>
-            <a href="#case-nova" class="router-node">03. Nova</a>
-            <span style="color:var(--surface-3);">/</span>
-            <a href="#case-jaggu" class="router-node">04. Jaggu's World</a>
+    <nav>
+        <div class="logo">CHITI<span>.</span></div>
+        <div class="nav-links">
+            <a href="#work">Work</a>
+            <a href="#services">Services</a>
+            <a href="#process">Process</a>
+            <a href="#contact">Contact</a>
         </div>
+        <a href="#contact" class="nav-cta">Start a Project</a>
     </nav>
 
-    <div class="hero">
-        <div class="hero-bg"></div>
-        <div class="badge" style="background: rgba(255,255,255,0.1); color:#fff; border:1px solid rgba(255,255,255,0.2);">CHITI TECHNOLOGIES EXCLUSIVE</div>
-        <h1>Strategic Architecture.</h1>
-        <p>We do not use templates. We architect strictly typed, perfectly scaled, high-fidelity ecosystems from empirical research to global enterprise deployment.</p>
-        <button onclick="document.getElementById('case-netq').scrollIntoView()" style="background: var(--primary); color: #fff; border: none; padding: 16px 32px; font-family: var(--font-body); font-weight: 600; border-radius: 8px; cursor: pointer; margin-top: 24px;">Examine Frameworks</button>
-    </div>
+    <!-- Hero -->
+    <section class="hero">
+        <h1>We Build Digital Products That Actually Perform</h1>
+        <p>Design and development agency specializing in enterprise SaaS, D2C commerce, and AI-powered interfaces. We ship on time, on budget, every time.</p>
+        <div class="hero-cta">
+            <a href="#work" class="btn-primary">See Our Work</a>
+            <a href="#contact" class="btn-secondary">Talk to Us</a>
+        </div>
+    </section>
 
-    <div class="container" id="work">
-
-        <!-- PROJECT 1: NETQ (EMPIRICAL DISCOVERY) -->
-        <section class="case-study" id="case-netq">
-            <div class="design-logic">
-                <div class="badge">01. B2B SAAS</div>
-                <h2>NetQ Command</h2>
-                
-                <div class="empirical-block" style="border-left-color: var(--semantic-error);">
-                    <h4 style="color: var(--semantic-error);">1. Empirical Discovery & The Threat</h4>
-                    <p style="font-size: 0.95rem; margin:0; color: var(--text-main);">IT Admins were developing active eye-strain. Critical failure alerts were buried in endless tables. We realized the problem wasn't aesthetic—it was <strong>cognitive overload</strong>. The UI was functionally dangerous.</p>
-                </div>
-
-                <div class="empirical-block">
-                    <h4>2. The Chiti Discovery Phase</h4>
-                    <p style="font-size: 0.95rem; margin:0; color: var(--text-main);">We engaged in 2 weeks of raw systemic flow discovery. We ruthlessly stripped out telemetry layers, rendering over 40 structural whiteboard iterations to map the absolute most efficient human-data transmission hierarchy.</p>
-                </div>
-
-                <div class="roi-badge">ROI: -42% System Failure Acknowledgement Time</div>
+    <!-- Stats -->
+    <section class="stats-bar">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>Projects Delivered</p>
             </div>
-            
-            <div style="display: flex; flex-direction: column; gap: 32px;">
-                <!-- The Chiti Discovery Sketch -->
-                <div class="empirical-sketch">
-                    <div style="color: #666; font-family: var(--font-mono); font-size: 0.8rem; margin-bottom:16px;">V0.1 Low-Fi Structural Discovery</div>
-                    <div style="display:flex; justify-content:space-between; margin-bottom:24px;">
-                        <div class="sharpie-line" style="width: 40%;"></div>
-                        <div style="border:2px solid #222; border-radius:50%; width:24px; height:24px;"></div>
-                    </div>
-                    <div class="sharpie-line" style="width: 100%; height:80px; background: transparent; border: 2px dashed #666; display:flex; align-items:center; justify-content:center;">Data Component Block</div>
-                </div>
+            <div class="stat-item">
+                <h3>3</h3>
+                <p>Enterprise Products Built</p>
+            </div>
+            <div class="stat-item">
+                <h3>60%</h3>
+                <p>Avg. Time Saved</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>On-Time Delivery</p>
+            </div>
+        </div>
+    </section>
 
-                <!-- Final Polish -->
-                <div class="ui-mock-window">
-                    <div class="ui-header">
-                        <div class="mac-dot"></div><div class="mac-dot"></div><div class="mac-dot"></div>
-                        <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); margin-left: 10px;">chiti-v3-deployment</div>
-                    </div>
-                    <div class="ui-body">
-                        <div style="display: flex; gap: var(--space-3);">
-                            <div style="background: var(--surface-2); padding: var(--space-3); border-radius: var(--radius-sm); border: 1px solid var(--glass-border); flex: 1;">
-                                <div style="color: var(--text-muted); font-size: 0.85rem;">Authentication Flux</div>
-                                <div style="font-size: 1.5rem; font-weight: 700; font-family: var(--font-display);" class="ticker-val" data-base="24.8">24.8K</div>
-                                <div style="height: 8px; border-radius: 4px; margin-top: 8px; background: var(--primary); opacity: 0.8; width: 80%;"></div>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="section-label">What We Do</div>
+        <h2 class="section-title">Full-Stack Digital Solutions</h2>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>UX Research & Design</h3>
+                <p>User research, wireframes, prototypes, and high-fidelity designs that your team will actually use.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Front-End Development</h3>
+                <p>Pixel-perfect, responsive, accessible web applications built with modern frameworks.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Design Systems</h3>
+                <p>Reusable component libraries that scale across products and teams.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3>AI Integration</h3>
+                <p>Thoughtful AI-powered features that enhance, not overwhelm, your users.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work -->
+    <section class="work" id="work">
+        <div class="section-label">Selected Work</div>
+        <h2 class="section-title">Results That Speak</h2>
+
+        <!-- Project 1: NetQ -->
+        <div class="work-item">
+            <div class="work-content">
+                <h3>01. Enterprise SaaS</h3>
+                <h2>NetQ Command Dashboard</h2>
+                <p>IT admins were struggling with overwhelming dashboards. Critical alerts were buried, causing delayed responses to system failures.</p>
+                <p><strong>The challenge:</strong> Reduce cognitive load while surfacing the right information at the right time.</p>
+                <div class="work-result">
+                    <span>-42%</span>
+                    <small>Faster alert response time. System failures acknowledged in seconds, not minutes.</small>
                 </div>
             </div>
-        </section>
+            <div class="work-visual">
+                <div style="text-align: center; color: var(--text-muted);">
+                    <div style="font-size: 4rem; margin-bottom: 16px;">📊</div>
+                    <p>Dashboard Interface</p>
+                </div>
+            </div>
+        </div>
 
-        <!-- PROJECT 2: BAZAARSETU (OMNICHANNEL IMPAACT) -->
-        <section class="case-study" style="direction: rtl;" id="case-bazaar">
-            <div class="design-logic" style="direction: ltr; padding-right: 0; padding-left: var(--space-4);">
-                <div class="badge">02. OMNICHANNEL COMMERCE</div>
+        <!-- Project 2: BazaarSetu -->
+        <div class="work-item">
+            <div class="work-content">
+                <h3>02. D2C Commerce</h3>
                 <h2>BazaarSetu Logistics</h2>
-                
-                <div class="empirical-block" style="border-left-color: var(--semantic-error);">
-                    <h4 style="color: var(--semantic-error);">The Omnichannel Threat</h4>
-                    <p style="font-size: 0.95rem; margin:0; color: var(--text-main);">Local artisans were completely disconnected from digital high-end buyers. Previous mobile checkouts felt highly unreliable, paralyzing the physical shipments from the warehouse.</p>
-                </div>
-
-                <div class="empirical-block">
-                    <h4>The Proprietary Execution</h4>
-                    <p style="font-size: 0.95rem; margin:0; color: var(--text-main);">We introduced the <strong>Chiti Glass-Counter Matrix</strong> into the mobile codebase. Imbued with deep Haptic Audio triggers and massive tap-targets, digital trust skyrocketed. The software directly supercharged real-world physical asset movement.</p>
-                </div>
-                
-                <div class="roi-badge">ROI: +8.4% Aggregate Flow Completion</div>
-            </div>
-            
-            <!-- Mobile rendering frame with components -->
-            <div class="phone-mockup" style="direction: ltr;">
-                <div style="position: absolute; top:0; left:50%; transform: translateX(-50%); width: 120px; height: 25px; background: #111; border-radius: 0 0 16px 16px; z-index: 10;"></div>
-                <div style="padding: 50px 20px 20px 20px; flex: 1; overflow-y: auto; background: var(--bg-base);">
-                    <h3 style="font-size: 1.2rem; margin-bottom: 24px;">Artisan Market</h3>
-                    
-                    <div class="chiti-card" style="margin-bottom: 16px; padding:0; overflow:hidden;">
-                        <span class="status-chip">VERIFIED</span>
-                        <div style="height: 140px; background: linear-gradient(135deg, #222, var(--surface-2)); border-bottom: 1px solid var(--glass-border);"></div>
-                        <div style="padding: 16px; text-align:left;">
-                            <div style="font-weight: 600; font-size: 1rem;">Terracotta Vase</div>
-                            <div style="color: var(--primary); font-family: var(--font-mono); font-size: 0.85rem; margin-top: 4px;">$124.00</div>
-                            <button style="margin-top:16px; width:100%; border:none; background: var(--text-main); color: var(--bg-base); font-family:var(--font-body); padding:10px; border-radius: 4px; font-weight:600;">Acquire Asset</button>
-                        </div>
-                    </div>
+                <p>Local artisans needed to sell to premium digital buyers. The existing mobile checkout felt unreliable and complex.</p>
+                <p><strong>The solution:</strong> A trust-first mobile experience with haptic feedback and oversized touch targets for warehouse conditions.</p>
+                <div class="work-result">
+                    <span>+8.4%</span>
+                    <small>Increase in order completion. Zero failed transactions in first 6 months.</small>
                 </div>
             </div>
-        </section>
-
-        <!-- PROJECT 3: NOVA (ETHNOGRAPHY) -->
-        <section class="case-study" id="case-nova">
-            <div class="design-logic">
-                <div class="badge">03. GENERATIVE AI & ETHICS</div>
-                <h2>Project: Nova</h2>
-                
-                <div class="empirical-block" style="border-left-color: var(--dv-sapphire);">
-                    <h4 style="color: var(--dv-sapphire);">Empirical User Tracing</h4>
-                    <p style="font-size: 0.95rem; margin:0; color: var(--text-main);">We refused to launch a generic AI. We executed behavioral mappings on 40 elite D2C shoppers, definitively proving they rejected submissive robotic assistance in favor of confident, executive concierge logic.</p>
-                </div>
-
-                <div class="empirical-block" style="border-left-color: var(--primary);">
-                    <h4>Chiti Algorithmic Trust Pledge</h4>
-                    <p style="font-size: 0.95rem; margin:0; color: var(--text-main);">We adhere to strict Interface Ethics. The UI enforces mandatory Terminal Identification flags (<code>SYSTEM: ACT_ACTIVE</code>) so humans are never maliciously immersed without tracking consent.</p>
-                </div>
-
-                <div class="empirical-block">
-                    <h4>Generative Structure Logic</h4>
-                    <p style="font-size: 0.95rem; margin:0; color: var(--text-main);">Project Nova utilizes a <strong>Non-Linear Probability Graph</strong> to determine user intent. We architected the logic nodes to prioritize "Executive Agency" over "Submissive Automation".</p>
-                </div>
-
-                <div class="roi-badge">ROI: +32% Intent Accuracy / Task Velocity</div>
-            </div>
-            
-            <div class="ui-mock-window" style="background: radial-gradient(circle at top right, rgba(124, 58, 237, 0.2), transparent 60%); display:flex; flex-direction:column;">
-                <div class="ui-header">
-                    <div class="mac-dot"></div><div class="mac-dot"></div><div class="mac-dot"></div>
-                </div>
-                <div style="flex:1; padding: 32px; display:flex; flex-direction:column; justify-content:space-between;">
-                     <!-- Logic Node Flow -->
-                     <div style="display:flex; gap:16px; margin-bottom:20px;">
-                        <div style="width:40px; height:40px; border-radius:50%; background:var(--primary); box-shadow:0 0 20px rgba(124,58,237,0.4); display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:0.7rem;">CORE</div>
-                        <div style="width:100px; height:2px; background:linear-gradient(90deg, var(--primary), transparent); align-self:center;"></div>
-                        <div style="width:40px; height:40px; border-radius:12px; border:1px solid var(--glass-border); background:rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:0.7rem;">NODE</div>
-                     </div>
-
-                     <div style="background: var(--surface-2); padding: var(--space-4); border-radius: 12px 12px 12px 0; border: 1px solid rgba(124, 58, 237, 0.4); max-width: 80%; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-                        <div style="font-size: 0.85rem; color: var(--primary); font-family: var(--font-mono); margin-bottom: 8px;">SYSTEM: CREATIVE_DIRECTOR</div>
-                        The data dictates a targeted tactical shift. Do you want me to initiate the optimization sequences?
-                    </div>
+            <div class="work-visual">
+                <div style="text-align: center; color: var(--text-muted);">
+                    <div style="font-size: 4rem; margin-bottom: 16px;">📦</div>
+                    <p>Mobile Commerce</p>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- PROJECT 4: JAGGU'S WORLD (SOCIO-ECONOMIC IMPACT) -->
-        <section class="case-study section-reveal" id="case-jaggu">
-            <div class="design-logic">
-                <div class="badge">04. SOCIO-ECONOMIC EDUCATION</div>
-                <h2>Jaggu's World Plattform</h2>
-                
-                <div class="empirical-block" style="border-left-color: var(--semantic-success);">
-                    <h4 style="color: var(--semantic-success);">Foundational Literacy (FLN) Mandate</h4>
-                    <p style="font-size: 0.95rem; margin:0; color: var(--text-main);">Government schools in rural India face a massive "Resource Friction". We architected a <strong>High-Fidelity NCERT Ecosystem</strong> that survives offline, rendering directly on entry-level hardware with zero-lag parity.</p>
+        <!-- Project 3: Nova -->
+        <div class="work-item">
+            <div class="work-content">
+                <h3>03. AI Product</h3>
+                <h2>Project Nova</h2>
+                <p>Generic AI assistants were being rejected by users. Too robotic, too submissive, not helpful enough.</p>
+                <p><strong>Our approach:</strong> Built an "executive concierge" AI that takes initiative while maintaining transparency about its capabilities.</p>
+                <div class="work-result">
+                    <span>+32%</span>
+                    <small>Task completion rate. Users completed complex multi-step workflows 32% faster.</small>
                 </div>
-
-                <div class="empirical-block">
-                    <h4>The Folkart UX Synthesis</h4>
-                    <p style="font-size: 0.95rem; margin:0; color: var(--text-main);">We refused "generic mobile" aesthetics. We integrated <strong>Warli Folk-Art patterns</strong> into the system anatomy, creating a culturally grounded interface that increased foundational retention by 14% across Tier-3 demographics.</p>
+            </div>
+            <div class="work-visual">
+                <div style="text-align: center; color: var(--text-muted);">
+                    <div style="font-size: 4rem; margin-bottom: 16px;">🤖</div>
+                    <p>AI Interface</p>
                 </div>
-
-                <div class="roi-badge">ROI: +18% Student Engagement Performance</div>
             </div>
-            
-            <div style="display:flex; flex-direction:column; gap:32px;">
-                 <div class="phone-mockup" style="width:400px; height:280px; border-radius:24px; border:8px solid #333; background: #fffcf5; background-image: radial-gradient(circle at 10px 10px, #eee 2px, transparent 0); background-size: 20px 20px; display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative; overflow:hidden;">
-                    <!-- Warli pattern overlay -->
-                    <div style="position:absolute; top:0; left:0; width:100%; height:100%; opacity:0.05; pointer-events:none;">
-                        <svg width="100%" height="100%"><path d="M10 10 L30 30 M30 10 L10 30" stroke="#000" stroke-width="2" fill="none"/></svg>
-                    </div>
-                    <div style="font-size:4rem;">🐵</div>
-                    <div style="font-weight:800; font-family:var(--font-display); color:#333; margin-top:10px;">Jaggu's World</div>
-                    <div style="display:flex; gap:8px; margin-top:16px;">
-                        <div style="width:12px; height:12px; border-radius:50%; background:#ffd700;"></div>
-                        <div style="width:12px; height:12px; border-radius:50%; background:#ffd700;"></div>
-                        <div style="width:12px; height:12px; border-radius:50%; background:#ddd;"></div>
-                    </div>
-                 </div>
+        </div>
 
-                 <div class="empirical-block" style="background:rgba(124,58,237,0.05); border:1px dashed var(--primary);">
-                    <h4 style="font-size:0.7rem;">Architecture Compliance</h4>
-                    <p style="font-size:0.8rem; margin:0; font-family:var(--font-mono); color:var(--text-muted);">
-                        - Offline-First Storage API<br>
-                        - Multi-Buddy Voice Synthesis (TTS)<br>
-                        - 300ms Chiti Interaction Math
-                    </p>
-                 </div>
+        <!-- Project 4: Jaggu's World -->
+        <div class="work-item">
+            <div class="work-content">
+                <h3>04. EdTech</h3>
+                <h2>Jaggu's World</h2>
+                <p>Rural Indian schools needed digital learning tools that work offline on low-end phones with no internet.</p>
+                <p><strong>The design:</strong> Culturally relevant interface with folk art aesthetics, designed for children who've never seen a smartphone before.</p>
+                <div class="work-result">
+                    <span>+18%</span>
+                    <small>Improvement in learning outcomes. Kids engaged 18% longer with lessons.</small>
+                </div>
             </div>
-        </section>
+            <div class="work-visual">
+                <div style="text-align: center; color: var(--text-muted);">
+                    <div style="font-size: 4rem; margin-bottom: 16px;">📚</div>
+                    <p>EdTech Platform</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    </div>
+    <!-- Testimonial -->
+    <section class="testimonials">
+        <div class="testimonials-inner">
+            <div class="section-label">What Clients Say</div>
+            <p class="testimonial-quote">"Chiti delivered a product we thought would take a year in 4 months. The attention to detail and understanding of our users was exceptional."</p>
+            <p class="testimonial-author">Rahul Sharma</p>
+            <p class="testimonial-role">CTO, BazaarSetu</p>
+        </div>
+    </section>
 
-    <!-- Script for Router Navigation and reveal logic -->
-    <script>
-        const router = document.getElementById('routerM');
-        const sections = document.querySelectorAll('.case-study');
-        const routerNodes = document.querySelectorAll('.router-node');
+    <!-- CTA -->
+    <section class="cta" id="contact">
+        <div class="section-label">Let's Work Together</div>
+        <h2>Ready to Build Something Great?</h2>
+        <p>Whether you have a detailed spec or just an idea, we'd love to hear from you.</p>
+        <a href="mailto:hello@chiti.studio" class="btn-primary">hello@chiti.studio</a>
+    </section>
 
-        // Initial reveal for already visible items
-        sections.forEach(s => s.classList.add('section-reveal'));
+    <footer>
+        <p>© 2026 Chiti Technologies. Built with purpose.</p>
+    </footer>
 
-        // Show/Hide sticky router when passing Hero
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > window.innerHeight * 0.8) {
-                router.classList.add('visible');
-            } else {
-                router.classList.remove('visible');
-            }
-        });
-
-        // Ticker Logic for live data (Chiti v3.1)
-        function updateTickers() {
-            const tickers = document.querySelectorAll('.ticker-val');
-            tickers.forEach(t => {
-                let base = parseFloat(t.getAttribute('data-base'));
-                let flux = (Math.random() - 0.5) * 0.2;
-                t.innerText = (base + flux).toFixed(1) + 'K';
-            });
-        }
-        setInterval(updateTickers, 2000);
-
-        // Intersection Observer to highlight active Case Study and Trigger Reveal
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    entry.target.classList.add('active'); // Trigger reveal
-                    const id = entry.target.getAttribute('id');
-                    routerNodes.forEach(node => {
-                        node.classList.remove('active');
-                        if (node.getAttribute('href') === `#${id}`) {
-                            node.classList.add('active');
-                        }
-                    });
-                }
-            });
-        }, { root: null, rootMargin: '-10% 0px -40% 0px', threshold: 0.1 });
-
-        sections.forEach(sec => observer.observe(sec));
-    </script>
 </body>
 </html>
