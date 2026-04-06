@@ -474,7 +474,7 @@
 
     <!-- LIVE CONTROLS TOOLBAR -->
     <div class="controls-bar">
-        <button class="sidebar-toggle" onclick="toggleSidebar()" style="display: none; padding: 8px; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-sm); cursor: pointer; margin-right: var(--space-3);">☰</button>
+        <button class="sidebar-toggle" onclick="toggleSidebar()" style="padding: 8px; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius-sm); cursor: pointer; margin-right: var(--space-3);">☰</button>
         <span class="controls-label">Theme:</span>
         <div class="control-group" id="themeGroup">
             <button class="ctrl-btn active" id="btnDark" onclick="setTheme('dark')">Dark</button>
@@ -1074,7 +1074,31 @@
                 }
             });
         }, { rootMargin: '-80px 0px -30% 0px', threshold: 0.3 });
-        sections.forEach(s => observer.observe(s));
+
+        // Initialize scroll spy after DOM is fully loaded
+        function initScrollSpy() {
+            sections.forEach(s => observer.observe(s));
+            // Set initial active state based on current scroll position
+            const scrollY = window.scrollY;
+            const viewportHeight = window.innerHeight;
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const sectionTop = rect.top + window.scrollY;
+                if (scrollY >= sectionTop - 100 && scrollY < sectionTop + rect.height - 100) {
+                    const id = section.getAttribute('id');
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector(`.nav-link[href="#${id}"]`);
+                    if (active) active.classList.add('active');
+                }
+            });
+        }
+
+        // Initialize scroll spy
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initScrollSpy);
+        } else {
+            initScrollSpy();
+        }
 
         // Prevent observer during manual scroll
         navLinks.forEach(link => {
@@ -1082,6 +1106,17 @@
                 isScrolling = true;
                 setTimeout(() => isScrolling = false, 1000);
             });
+        });
+
+        // Update scroll spy on window load and resize
+        window.addEventListener('load', () => {
+            initScrollSpy();
+        });
+
+        window.addEventListener('resize', () => {
+            // Reinitialize observer on resize to handle dynamic content
+            observer.disconnect();
+            sections.forEach(s => observer.observe(s));
         });
     </script>
 </body>
