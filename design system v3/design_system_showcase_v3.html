@@ -143,11 +143,23 @@
             transition: background 0.4s var(--p-ease-smooth), transform 0.3s var(--p-ease-smooth);
         }
         @media (max-width: 768px) {
-            .sidebar { transform: translateX(-100%); }
+            .sidebar { transform: translateX(-100%); width: 70vw; max-width: 280px; }
             .sidebar.open { transform: translateX(0); }
             .sidebar-toggle { display: block; }
             .sidebar-overlay { display: block; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.5); z-index: 99; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
             .sidebar.open ~ .sidebar-overlay { opacity: 1; pointer-events: auto; }
+        }
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            .main-content { padding: var(--space-4) var(--space-4) var(--space-8); }
+            .comp-grid { grid-template-columns: 1fr; gap: var(--space-3); }
+            .controls-bar { padding: var(--space-2) var(--space-3); flex-direction: column; align-items: stretch; }
+            .controls-bar .control-group { flex-direction: column; gap: 4px; width: 100%; }
+            .ctrl-btn { padding: 6px 8px; font-size: 0.7rem; width: 100%; min-height: 44px; }
+            .demo-stage { padding: var(--space-3); gap: var(--space-2); }
+            .c-btn { padding: calc(var(--space-1) + 4px) var(--space-3); font-size: 0.85rem; min-height: 44px; }
+            .c-input { padding: calc(var(--space-1) + 4px) var(--space-2); font-size: 0.85rem; min-height: 44px; }
+            .sidebar-toggle { min-height: 44px; padding: 8px; }
         }
         .sidebar-brand {
             font-family: var(--font-display);
@@ -951,7 +963,15 @@
     <script>
         // ── Sidebar Toggle ──
         function toggleSidebar() {
-            document.querySelector('.sidebar').classList.toggle('open');
+            const sidebar = document.querySelector('.sidebar');
+            const body = document.body;
+            sidebar.classList.toggle('open');
+            console.log('Sidebar toggled:', sidebar.classList.contains('open'));
+            if (sidebar.classList.contains('open')) {
+                body.style.overflow = 'hidden';
+            } else {
+                body.style.overflow = '';
+            }
         }
 
         // ── Live Theme Switcher ──
