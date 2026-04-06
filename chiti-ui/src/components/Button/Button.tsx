@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './Button.module.css';
 import { useHaptic } from '../../hooks/useHaptic';
 
 /**
@@ -14,54 +13,94 @@ import { useHaptic } from '../../hooks/useHaptic';
  *   <ChitiButton as="a" href="/dashboard">Go to Dashboard</ChitiButton>
  */
 
-type AsProp<C extends React.ElementType> = {
-  as?: C;
+
+
+const getButtonStyles = (variant: string = 'glass') => {
+  const baseStyles: React.CSSProperties = {
+    fontFamily: 'Inter, sans-serif',
+    fontWeight: 600,
+    fontSize: '0.95rem',
+    padding: '12px 16px',
+    borderRadius: '6px',
+    cursor: 'pointer',
+    border: 'none',
+    transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '8px',
+    textDecoration: 'none',
+    outline: 'none',
+  };
+
+  switch (variant) {
+    case 'cinematic':
+      return {
+        ...baseStyles,
+        background: 'linear-gradient(135deg, hsl(260, 100%, 65%), hsl(260, 80%, 45%))',
+        color: 'white',
+        boxShadow: '0 4px 12px rgba(124, 58, 237, 0.3)',
+      };
+    case 'glass':
+      return {
+        ...baseStyles,
+        background: 'rgba(255, 255, 255, 0.1)',
+        color: 'hsl(0, 0%, 98%)',
+        border: '1px solid rgba(255, 255, 255, 0.2)',
+        backdropFilter: 'blur(10px)',
+      };
+    case 'saas':
+      return {
+        ...baseStyles,
+        background: 'hsl(220, 10%, 12%)',
+        color: 'hsl(0, 0%, 98%)',
+        border: '1px solid rgba(255, 255, 255, 0.08)',
+      };
+    case 'error':
+      return {
+        ...baseStyles,
+        background: 'hsl(350, 80%, 55%)',
+        color: 'white',
+      };
+    default:
+      return baseStyles;
+  }
 };
 
-type PropsToOmit<C extends React.ElementType, P> = keyof (AsProp<C> & P);
-
-type PolymorphicComponentProp<
-  C extends React.ElementType,
-  Props = object
-> = React.PropsWithChildren<Props & AsProp<C>> &
-  Omit<React.ComponentPropsWithoutRef<C>, PropsToOmit<C, Props>>;
-
-export type ChitiButtonOwnProps = {
+export interface ChitiButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'cinematic' | 'glass' | 'saas' | 'error';
   audioHapticTick?: boolean;
-};
+}
 
-export type ChitiButtonProps<C extends React.ElementType = 'button'> =
-  PolymorphicComponentProp<C, ChitiButtonOwnProps>;
-
-export const ChitiButton = <C extends React.ElementType = 'button'>({
-  as,
+export const ChitiButton: React.FC<ChitiButtonProps> = ({
   variant = 'glass',
   audioHapticTick = true,
   children,
-  className = '',
+  style = {},
   onClick,
   ...props
-}: ChitiButtonProps<C>) => {
+}) => {
   const { playPremiumTick } = useHaptic();
-  const Component = as || 'button';
 
-  const handleInteraction = (e: React.MouseEvent<Element>) => {
-    if (audioHapticTick && !(props as { disabled?: boolean }).disabled) {
+  const handleInteraction = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (audioHapticTick && !props.disabled) {
       playPremiumTick();
     }
-    if (onClick) (onClick as React.MouseEventHandler<Element>)(e);
+    if (onClick) onClick(e);
   };
 
-  const variantClass = styles[`btn_${variant}`] || '';
+  const buttonStyles = {
+    ...getButtonStyles(variant),
+    ...style,
+  };
 
   return (
-    <Component
-      className={`${styles.btn} ${variantClass} ${className}`}
+    <button
+      style={buttonStyles}
       onClick={handleInteraction}
       {...props}
     >
       {children}
-    </Component>
+    </button>
   );
 };

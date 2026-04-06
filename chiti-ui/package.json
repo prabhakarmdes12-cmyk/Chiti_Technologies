@@ -10,8 +10,7 @@
     ".": {
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
-    },
-    "./styles.css": "./dist/style.css"
+    }
   },
   "files": [
     "dist"
@@ -25,12 +24,32 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
+  "author": "Chiti Technologies",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prabhakarmdes12-cmyk/chiti_technologies_Design_System_v3.git"
+  },
+  "homepage": "https://chitiusdv30.vercel.app",
+  "keywords": [
+    "design-system",
+    "react",
+    "ui-components",
+    "typescript",
+    "enterprise",
+    "chiti",
+    "haptic-feedback",
+    "saas-components"
+  ],
+  "bugs": {
+    "url": "https://github.com/prabhakarmdes12-cmyk/chiti_technologies_Design_System_v3/issues"
+  },
   "devDependencies": {
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
-    "@vitejs/plugin-react": "^4.2.1",
+    "@vitejs/plugin-react": "^6.0.1",
     "typescript": "^5.2.2",
-    "vite": "^5.0.0",
-    "vite-plugin-dts": "^3.7.3"
+    "vite": "^8.0.4",
+    "vite-plugin-dts": "^4.5.4"
   }
 }
