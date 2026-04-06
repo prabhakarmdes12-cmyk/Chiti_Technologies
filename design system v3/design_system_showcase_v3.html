@@ -248,6 +248,19 @@
 .comp-card:hover { transform: scale(1.01); border-color: rgba(124, 58, 237, 0.3); }
         .comp-card-header { padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
         .comp-card-title { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); }
+        .copy-btn {
+          font-family: var(--font-mono);
+          font-size: 0.7rem;
+          padding: 4px 10px;
+          background: var(--surface-2);
+          border: 1px solid var(--border);
+          border-radius: var(--radius-sm);
+          color: var(--text-muted);
+          cursor: pointer;
+          transition: all 0.15s;
+        }
+        .copy-btn:hover { background: var(--brand); color: white; border-color: var(--brand); }
+        .copy-btn.copied { background: var(--success); border-color: var(--success); color: white; }
         .comp-card-body { padding: var(--space-4); }
         .demo-stage {
             background: var(--surface-2);
@@ -1006,11 +1019,31 @@
         setInterval(updateTickers, 4000);
 
         // ── Copy to Clipboard ──
-        function copyToClipboard(text) {
+        function copyToClipboard(text, btn) {
             navigator.clipboard.writeText(text).then(() => {
-                alert('Copied to clipboard: ' + text);
+                const original = btn.innerText;
+                btn.innerText = '✓ COPIED';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.innerText = original;
+                    btn.classList.remove('copied');
+                }, 1500);
+                playHaptic();
             });
         }
+
+        // Auto-add copy buttons to all component cards
+        document.querySelectorAll('.comp-card').forEach(card => {
+            const header = card.querySelector('.comp-card-header');
+            const btn = document.createElement('button');
+            btn.className = 'copy-btn';
+            btn.innerText = 'COPY';
+            btn.addEventListener('click', () => {
+                const demo = card.querySelector('.demo-stage');
+                if(demo) copyToClipboard(demo.innerHTML, btn);
+            });
+            header.appendChild(btn);
+        });
 
         // ── Animate Demo ──
         function animateDemo() {

@@ -1,0 +1,202 @@
+Persona Orchestration System—Nova adapts in real-time based on user intent signals.
+
+🧠 1. VARIANT TRIGGER LOGIC (DECISION ENGINE)
+
+We define 3 states:
+
+Soft Idol → Comfort Layer
+Creative Director → Authority Layer
+Edge / Experimental → Attention Layer
+🎯 CORE SIGNALS TO TRACK
+
+You don’t need AI initially—just structured signals:
+
+1. Entry Behavior
+Time on page
+Scroll depth
+Click on sphere
+2. Intent Signals
+Button choices
+Text input keywords
+Pages visited (portfolio, pricing, etc.)
+3. Engagement Quality
+Response speed
+Drop-off points
+Re-engagement
+🧩 DECISION TREE (SIMPLIFIED)
+IF user_first_visit THEN
+    Nova = Edge_Experimental   // hook attention
+
+IF user_clicks_sphere THEN
+    Nova = Soft_Idol           // reduce friction
+
+IF user_selects("Just exploring") THEN
+    Nova = Soft_Idol
+
+IF user_selects("I want a website") THEN
+    Nova = Soft_Idol → Creative_Director (after 1 step)
+
+IF user_selects("I’m building something new") THEN
+    Nova = Creative_Director
+
+IF user_views(pricing OR portfolio) THEN
+    Nova = Creative_Director
+
+IF user_high_intent (fast replies + specific answers) THEN
+    Nova = Creative_Director
+
+IF user_idle OR hesitant THEN
+    Nova = Soft_Idol (re-engage)
+
+IF returning_user THEN
+    Nova = Creative_Director (skip fluff)
+🧠 TRANSITION RULE (VERY IMPORTANT)
+
+Never hard-switch abruptly.
+
+Use:
+
+micro fade (300–500ms)
+slight pose change
+lighting shift
+
+It should feel like mood change, not character replacement
+
+⚙️ 2. NEXT.JS IMPLEMENTATION (CLEAN ARCHITECTURE)
+
+You’re building this like a state-driven UI system.
+
+🧱 A. DEFINE PERSONA STATES
+// /lib/novaState.js
+export const NOVA_STATES = {
+  SOFT: "soft",
+  DIRECTOR: "director",
+  EDGE: "edge",
+};
+🧠 B. GLOBAL STATE (ZUSTAND or CONTEXT)
+import { create } from "zustand";
+
+export const useNovaStore = create((set) => ({
+  persona: "edge",
+  setPersona: (persona) => set({ persona }),
+}));
+🎯 C. DECISION ENGINE (CORE LOGIC)
+// /lib/novaEngine.js
+
+export function resolvePersona({ action, intent, behavior }) {
+  if (behavior.firstVisit) return "edge";
+
+  if (action === "SPHERE_CLICK") return "soft";
+
+  if (intent === "explore") return "soft";
+
+  if (intent === "website") return "soft";
+
+  if (intent === "startup") return "director";
+
+  if (behavior.visitedPricing) return "director";
+
+  if (behavior.highIntent) return "director";
+
+  return "soft";
+}
+🔄 D. HOOK IT INTO UI
+import { useNovaStore } from "@/lib/novaState";
+import { resolvePersona } from "@/lib/novaEngine";
+
+function handleUserAction(payload) {
+  const persona = resolvePersona(payload);
+  setPersona(persona);
+}
+🎭 E. DYNAMIC COMPONENT SWITCH
+import SoftNova from "./variants/SoftNova";
+import DirectorNova from "./variants/DirectorNova";
+import EdgeNova from "./variants/EdgeNova";
+
+export default function NovaRenderer() {
+  const { persona } = useNovaStore();
+
+  switch (persona) {
+    case "soft":
+      return <SoftNova />;
+    case "director":
+      return <DirectorNova />;
+    case "edge":
+      return <EdgeNova />;
+    default:
+      return <SoftNova />;
+  }
+}
+🎬 F. SMOOTH TRANSITIONS (CRITICAL)
+
+Use Framer Motion:
+
+import { motion, AnimatePresence } from "framer-motion";
+
+<AnimatePresence mode="wait">
+  <motion.div
+    key={persona}
+    initial={{ opacity: 0, scale: 0.98 }}
+    animate={{ opacity: 1, scale: 1 }}
+    exit={{ opacity: 0, scale: 0.98 }}
+    transition={{ duration: 0.4 }}
+  >
+    <NovaRenderer />
+  </motion.div>
+</AnimatePresence>
+🎥 3. VIDEO / ASSET MAPPING
+
+Each persona = different asset set
+
+const NOVA_ASSETS = {
+  soft: {
+    welcome: "/videos/soft/welcome.webm",
+    idle: "/videos/soft/idle.webm",
+  },
+  director: {
+    welcome: "/videos/director/welcome.webm",
+    idle: "/videos/director/idle.webm",
+  },
+  edge: {
+    welcome: "/videos/edge/welcome.webm",
+    idle: "/videos/edge/idle.webm",
+  },
+};
+🧠 4. ADVANCED LAYER (WHAT MAKES THIS INSANE)
+
+Once basic works, add:
+
+🔹 Intent Scoring System
+score += userTyped ? +2 : 0;
+score += visitedPricing ? +3 : 0;
+score += fastReplies ? +2 : 0;
+
+if (score > 5) persona = "director";
+🔹 Memory Layer
+localStorage.setItem("nova_user_type", "high_intent");
+
+Returning users skip Soft → go straight to Director.
+
+⚠️ CRITICAL DESIGN PRINCIPLE
+
+Don’t make it obvious.
+
+User should NEVER think:
+
+“Oh, the UI changed.”
+
+They should feel:
+
+“She understands me better now.”
+
+🚀 FINAL SYSTEM SUMMARY
+
+You’ve now built:
+
+Adaptive Persona Engine
+State-driven UI
+Emotion-aware interaction layer
+
+This is no longer a website.
+
+This is a digital front office employee that evolves in real time.

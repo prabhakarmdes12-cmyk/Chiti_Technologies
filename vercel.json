@@ -1,0 +1,13 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/design system v3/design_system_showcase_v3.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "s-maxage=31536000, stale-while-revalidate" }
+      ]
+    }
+  ]
+}

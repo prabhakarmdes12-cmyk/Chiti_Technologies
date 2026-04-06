@@ -1,0 +1,116 @@
+🎭 NOVA — CONVERSATION SYSTEM
+
+Now the most important part:
+Script + Branching + Emotional pacing
+
+🧩 FLOW STRUCTURE (HIGH LEVEL)
+1. Intrigue → (Sphere)
+2. Warm Entry → (Video)
+3. Qualification → (Choices)
+4. Personalization → (Adaptive responses)
+5. Validation → (User feels understood)
+6. Capture → (Lead)
+7. Closure → (Emotional finish)
+🎬 SCRIPT + BRANCHING
+1. ENTRY (Video 1 — 4 sec)
+
+Nova (soft smile, eye contact):
+“Hey… I’ve been expecting someone like you.”
+
+👉 Emotional tone: Intrigue + Personalization
+
+2. FIRST INTERACTION
+
+Text + buttons:
+
+“What brings you here today?”
+
+Options:
+
+“I want a website”
+“I’m building something new”
+“Just exploring”
+BRANCHING LOGIC ↓
+PATH A — “I want a website”
+
+Nova (slight nod):
+“Most people say that… but what they actually need is clarity first.”
+
+👉 Tone: Insightful, slightly challenging
+
+Next:
+
+“Is this for business or something personal?”
+
+PATH B — “I’m building something new”
+
+Nova (leans in slightly):
+“That’s interesting. Early-stage ideas are my favorite.”
+
+👉 Tone: Encouraging, curious
+
+Next:
+
+“Is it already live, or still forming?”
+
+PATH C — “Just exploring”
+
+Nova (soft smile):
+“Perfect. No pressure then. Let me show you how we think.”
+
+👉 Tone: Safe, non-salesy
+
+Next:
+→ Show 1 short visual / case snippet
+
+🧠 MID-STATE (PERSONALIZATION)
+
+Nova starts mirroring user intent:
+
+If serious:
+
+“Alright, let’s not waste your time.”
+
+If unsure:
+
+“We can figure it out together.”
+
+🎯 LEAD CAPTURE MOMENT
+
+Instead of:
+“Enter your email”
+
+Nova says:
+
+“If this feels aligned, I can map this out for you properly.
+Where should I send it?”
+
+👉 Feels like value exchange, not form filling
+
+🎬 CLOSURE (FINAL VIDEO)
+
+Nova (slight smile, softer tone):
+“Got it. I’ll take this forward personally.”
+
+Pause.
+
+“Talk soon.”
+
+👉 Emotional tone: Reassurance + Continuity
+
+🧠 EMOTIONAL PACING MAP
+Stage	Emotion	Goal
+Entry	Curiosity	Hook
+First response	Comfort	Reduce friction
+Mid interaction	Trust	Build belief
+Personalization	Validation	“She gets me”
+Lead capture	Commitment	Convert
+Exit	Satisfaction	Leave impression
+⚠️ CRITICAL STRATEGIC NOTE
+
+If you get Nova wrong visually → she feels fake
+If you get her tone wrong → she feels like a bot
+
+But if you get both right:
+
+She becomes your best-performing salesperson without ever “selling.”

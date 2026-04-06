@@ -1,0 +1,388 @@
+# NOVA – FULL CONVERSATION SYSTEM
+## Mode: Voice + Text + Option Hybrid
+## Tone: Controlled, Observant, Minimal
+
+---
+
+# 🌑 STATE 0: IDLE (SPHERE)
+
+(No voice)
+
+- Sphere pulses slowly
+- Subtle glow
+- Waits for interaction
+
+Trigger:
+- Click OR 3–5 sec delay
+
+---
+
+# 🎬 STATE 1: WELCOME (ENTRY)
+
+🎥 Video: welcome.mp4
+
+Nova:
+“Hi…  
+I’ve been expecting you.”
+
+(soft pause)
+
+“Let’s see if this is worth your time…  
+and ours.”
+
+→ OPTIONS:
+- Build something new
+- Improve an existing product
+- Just exploring
+
+---
+
+# 🌊 STATE 2: INTENT BRANCHING
+
+---
+
+## PATH A: BUILD SOMETHING NEW (HIGH VALUE)
+
+🎥 Reaction: slight nod
+
+Nova:
+“Alright… starting from zero is always interesting.”
+
+“Tell me… what are you looking to build?”
+
+→ OPTIONS:
+- Website
+- SaaS / Product
+- E-commerce
+- Not fully sure yet
+
+---
+
+### A1: AFTER PROJECT TYPE
+
+Nova:
+“Good. That gives me direction.”
+
+“Who is this for?”
+
+→ OPTIONS:
+- My startup
+- My business
+- A client
+- Personal project
+
+---
+
+### A2: AFTER OWNER TYPE
+
+Nova:
+“Understood.”
+
+(soft pause)
+
+“To guide this properly…  
+what level of investment are you considering?”
+
+→ OPTIONS:
+- Under ₹25K
+- ₹25K – ₹50K
+- ₹50K – ₹1L
+- ₹1L+
+
+---
+
+### A3: BUDGET REACTION
+
+IF HIGH (₹50K+ / ₹1L+):
+🎥 Reaction: subtle approval nod
+
+Nova:
+“This could be meaningful.”
+
+---
+
+IF LOW:
+🎥 Reaction: neutral calm
+
+Nova:
+“We’ll keep it efficient.”
+
+---
+
+### A4: TIMELINE
+
+Nova:
+“And how soon are you planning to begin?”
+
+→ OPTIONS:
+- Immediately
+- Within a month
+- 1–3 months
+- Just exploring timelines
+
+---
+
+### A5: NAME
+
+Nova:
+“Before we continue…  
+what should I call you?”
+
+→ INPUT: Name
+
+---
+
+### A6: EMAIL
+
+Nova:
+“Where should we reach you…  
+once this is reviewed?”
+
+→ INPUT: Email
+
+---
+
+---
+
+# 🌒 PATH B: IMPROVE EXISTING PRODUCT
+
+🎥 Reaction: attentive lean
+
+Nova:
+“Improving something already built…  
+requires clarity.”
+
+“What exactly are you looking to improve?”
+
+→ OPTIONS:
+- Design / UI
+- Performance
+- Conversion / sales
+- Complete redesign
+
+---
+
+### B1:
+
+Nova:
+“What’s the current scale of this?”
+
+→ OPTIONS:
+- Early stage
+- Growing
+- Established
+- Not sure
+
+---
+
+### B2: BUDGET
+
+Nova:
+“To approach this correctly…  
+what level of investment feels right?”
+
+→ OPTIONS (same as above)
+
+---
+
+### B3 → Continue to:
+- Timeline
+- Name
+- Email
+
+(same as Path A)
+
+---
+
+---
+
+# 🌘 PATH C: JUST EXPLORING
+
+🎥 Reaction: soft relaxed expression
+
+Nova:
+“Of course…”
+
+“You can take your time here.”
+
+(soft pause)
+
+“But tell me… what caught your attention?”
+
+→ OPTIONS:
+- Design style
+- Projects
+- Just browsing
+- Something specific
+
+---
+
+### C1:
+
+Nova:
+“Would you like me to show you something relevant…  
+or would you prefer to explore freely?”
+
+→ OPTIONS:
+- Show me
+- I’ll explore
+
+---
+
+IF “Show me”:
+→ redirect to portfolio section
+
+IF “Explore”:
+Nova:
+“Take your time.”
+
+→ END FLOW (soft exit)
+
+---
+
+---
+
+# 🌗 STATE: THINKING / TRANSITION
+
+🎥 Video: thinking.mp4
+
+Nova:
+“Just a moment…”
+
+(no extra text)
+
+---
+
+---
+
+# 🌕 FINAL STATE: SUMMARY + CLOSURE
+
+🎥 Video: closing.mp4
+
+Nova:
+“Here’s what I’ve understood…”
+
+(UI shows summary)
+
+---
+
+### SUMMARY DISPLAY
+
+Name: [User Name]  
+Intent: [Path]  
+Project: [Type]  
+Budget: [Range]  
+Timeline: [Selection]
+
+---
+
+Nova:
+
+“This looks promising.”
+
+(soft pause, slight smile)
+
+“We’ll take this forward…”
+
+“You’ll hear from us soon.”
+
+---
+
+---
+
+# 🔁 EXIT STATE
+
+- Chat fades out
+- Sphere returns
+- Slight glow pulse
+
+---
+
+# 🧠 BEHAVIOR RULES (CRITICAL)
+
+---
+
+## 1. NO OVER-TALKING
+- Max 1–2 lines per step
+- Always pause between lines
+
+---
+
+## 2. ALWAYS ACKNOWLEDGE
+Every user action = subtle recognition
+
+Examples:
+- “Alright…”
+- “I see.”
+- “Understood.”
+
+---
+
+## 3. NO SALES LANGUAGE
+
+Never say:
+- “We offer”
+- “Our services”
+- “Best solution”
+
+---
+
+## 4. CONTROL RHYTHM
+
+Flow pattern:
+→ Speak  
+→ Pause  
+→ Show options  
+→ Wait  
+
+---
+
+## 5. RESPECT USER INTELLIGENCE
+
+Never:
+- over-explain
+- simplify too much
+- sound scripted
+
+---
+
+# 🎯 CONVERSION LOGIC (HIDDEN LAYER)
+
+---
+
+## HIGH VALUE USER SIGNALS:
+- SaaS / Product
+- ₹50K+
+- Immediate timeline
+
+→ Flag as: PRIORITY LEAD
+
+---
+
+## MEDIUM:
+- Business website
+- ₹25K–₹50K
+
+→ Flag as: QUALIFIED
+
+---
+
+## LOW:
+- Browsing
+- Low budget
+
+→ Keep warm, no push
+
+---
+
+# 🧬 FINAL EXPERIENCE FEEL
+
+User should feel:
+
+→ “This wasn’t a form.”  
+→ “Someone understood what I needed.”  
+→ “This feels different.”  
+
+---
+
+# END

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700;900&amp;family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-fixed-dim": "#a27cff",
+            "inverse-surface": "#f9f9ff",
+            "on-surface": "#f6f6fc",
+            "surface-container-highest": "#23262c",
+            "secondary-fixed-dim": "#48d4f3",
+            "on-error": "#490013",
+            "on-tertiary-fixed-variant": "#740044",
+            "secondary": "#53ddfc",
+            "surface-bright": "#292c32",
+            "inverse-primary": "#6e3bd7",
+            "on-surface-variant": "#aaabb0",
+            "on-primary-fixed": "#000000",
+            "surface-variant": "#23262c",
+            "on-secondary-fixed": "#003a45",
+            "on-tertiary-fixed": "#37001d",
+            "on-tertiary": "#4b002a",
+            "on-error-container": "#ffb2b9",
+            "surface-tint": "#ba9eff",
+            "error-dim": "#d73357",
+            "surface-container": "#171a1f",
+            "tertiary-fixed": "#ff8cbc",
+            "inverse-on-surface": "#53555a",
+            "secondary-dim": "#40ceed",
+            "outline-variant": "#46484d",
+            "on-secondary-container": "#ecfaff",
+            "on-primary-container": "#2b006e",
+            "surface": "#0c0e12",
+            "tertiary-container": "#fa53a4",
+            "on-tertiary-container": "#2f0018",
+            "outline": "#74757a",
+            "error-container": "#a70138",
+            "secondary-fixed": "#65e1ff",
+            "surface-container-lowest": "#000000",
+            "primary-fixed": "#ae8dff",
+            "surface-container-low": "#111318",
+            "primary-dim": "#8455ef",
+            "on-secondary-fixed-variant": "#005969",
+            "tertiary-dim": "#ff67ad",
+            "tertiary-fixed-dim": "#ff73b1",
+            "tertiary": "#ff6daf",
+            "secondary-container": "#00687a",
+            "on-background": "#f6f6fc",
+            "error": "#ff6e84",
+            "on-primary": "#39008c",
+            "primary-container": "#ae8dff",
+            "background": "#0c0e12",
+            "on-secondary": "#004b58",
+            "on-primary-fixed-variant": "#370086",
+            "surface-container-high": "#1d2025",
+            "primary": "#ba9eff",
+            "surface-dim": "#0c0e12"
+          },
+          fontFamily: {
+            "headline": ["Epilogue"],
+            "body": ["Manrope"],
+            "label": ["Manrope"]
+          },
+          borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-card {
+      background: rgba(23, 26, 31, 0.4);
+      backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-nav {
+      background: rgba(12, 14, 18, 0.6);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .grid-overlay {
+      background-size: 40px 40px;
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    }
+    .aurora-blur {
+      filter: blur(100px);
+      opacity: 0.4;
+      animation: drift 20s ease-in-out infinite alternate;
+    }
+    @keyframes drift {
+      from { transform: translate(0,0) scale(1); }
+      to { transform: translate(10%, 10%) scale(1.1); }
+    }
+    .neon-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(186, 158, 255, 0.5), transparent);
+    }
+    .premium-gradient-text {
+      background: linear-gradient(135deg, #f6f6fc 0%, #aaabb0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary overflow-x-hidden">
+<!-- Decorative Background Layer -->
+<div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+<div class="grid-overlay absolute inset-0"></div>
+<div class="aurora-blur absolute -top-1/4 -left-1/4 w-[600px] h-[600px] bg-primary rounded-full"></div>
+<div class="aurora-blur absolute top-1/4 -right-1/4 w-[500px] h-[500px] bg-secondary rounded-full" style="animation-delay: -5s;"></div>
+<div class="aurora-blur absolute bottom-0 left-1/2 w-[700px] h-[700px] bg-tertiary/20 rounded-full" style="animation-delay: -10s;"></div>
+</div>
+<div class="relative z-10 flex min-h-screen w-full flex-col">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-6 lg:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+<!-- Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap px-8 py-4 glass-nav rounded-2xl sticky top-6 z-50 shadow-2xl">
+<div class="flex items-center gap-4 text-on-surface">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fill="currentColor" fill-rule="evenodd"></path>
+<path clip-rule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-on-surface text-xl font-headline font-bold leading-tight tracking-tight">Chiti Studio</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-10 items-center">
+<nav class="flex items-center gap-10">
+<a class="text-on-surface-variant hover:text-primary transition-colors text-xs font-label uppercase tracking-widest" href="#">Work</a>
+<a class="text-primary text-xs font-label uppercase tracking-widest" href="#">Services</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-xs font-label uppercase tracking-widest" href="#">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-xs font-label uppercase tracking-widest" href="#">Contact</a>
+</nav>
+<button class="flex min-w-[120px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-11 px-6 bg-primary text-on-primary text-xs font-bold leading-normal tracking-widest uppercase hover:bg-primary-dim transition-all">
+<span class="truncate">Get Started</span>
+</button>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="mt-28 @container">
+<div class="flex min-h-[520px] flex-col gap-10 items-center justify-center p-6">
+<div class="flex flex-col gap-6 text-center max-w-4xl">
+<p class="text-secondary font-label uppercase tracking-[0.4em] text-[10px] font-bold">Strategic Precision</p>
+<h1 class="text-on-surface text-6xl md:text-8xl font-headline font-black leading-[1] tracking-tighter premium-gradient-text">
+                Services built to elevate your brand
+              </h1>
+<h2 class="text-on-surface-variant text-lg md:text-xl font-normal leading-relaxed max-w-2xl mx-auto opacity-80">
+                Bridging the gap between abstract vision and digital reality through a curated lens of strategic synthesis and precision.
+              </h2>
+</div>
+<div class="flex flex-col sm:flex-row gap-6 mt-6">
+<button class="h-14 px-10 bg-primary text-on-primary font-bold rounded-xl flex items-center gap-2 hover:translate-y-[-2px] transition-all duration-300 shadow-xl shadow-primary/20">
+<span>View Portfolio</span>
+<span class="material-symbols-outlined text-sm" data-icon="north_east">north_east</span>
+</button>
+<button class="h-14 px-10 glass-card text-on-surface font-bold rounded-xl hover:bg-surface-container-high transition-all">
+                Our Process
+              </button>
+</div>
+</div>
+</section>
+<!-- Expertise Grid -->
+<section class="py-32">
+<div class="flex flex-col gap-4 mb-20 items-center text-center">
+<span class="text-primary-fixed-dim font-label text-xs uppercase tracking-[0.3em] font-bold">The Offering</span>
+<h2 class="text-on-surface text-4xl font-headline font-black tracking-tight">Built for Ambitious Brands</h2>
+<div class="neon-line w-24 mt-4"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Service Card 1 -->
+<div class="group glass-card p-8 rounded-2xl hover:translate-y-[-8px] transition-all duration-500">
+<div class="size-12 rounded-xl bg-primary/10 flex items-center justify-center mb-8 border border-primary/20">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="token">token</span>
+</div>
+<h3 class="text-on-surface text-xl font-headline font-bold mb-4">Brand Strategy</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-8 opacity-70">Defining market position with clinical accuracy and high-end curation for long-term equity.</p>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3 text-[10px] font-bold tracking-widest text-on-surface-variant uppercase">
+<span class="size-1 bg-primary rounded-full"></span> Market Analysis
+                </div>
+<div class="flex items-center gap-3 text-[10px] font-bold tracking-widest text-on-surface-variant uppercase">
+<span class="size-1 bg-primary rounded-full"></span> Narrative Design
+                </div>
+</div>
+</div>
+<!-- Service Card 2 -->
+<div class="group glass-card p-8 rounded-2xl hover:translate-y-[-8px] transition-all duration-500">
+<div class="size-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-8 border border-secondary/20">
+<span class="material-symbols-outlined text-secondary text-2xl" data-icon="dataset">dataset</span>
+</div>
+<h3 class="text-on-surface text-xl font-headline font-bold mb-4">Digital Curation</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-8 opacity-70">Selecting and refining visual assets to build a cohesive, minimalist digital identity.</p>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3 text-[10px] font-bold tracking-widest text-on-surface-variant uppercase">
+<span class="size-1 bg-secondary rounded-full"></span> Content Selection
+                </div>
+<div class="flex items-center gap-3 text-[10px] font-bold tracking-widest text-on-surface-variant uppercase">
+<span class="size-1 bg-secondary rounded-full"></span> Grid Systems
+                </div>
+</div>
+</div>
+<!-- Service Card 3 -->
+<div class="group glass-card p-8 rounded-2xl hover:translate-y-[-8px] transition-all duration-500">
+<div class="size-12 rounded-xl bg-tertiary/10 flex items-center justify-center mb-8 border border-tertiary/20">
+<span class="material-symbols-outlined text-tertiary text-2xl" data-icon="shape_line">shape_line</span>
+</div>
+<h3 class="text-on-surface text-xl font-headline font-bold mb-4">Visual Identity</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-8 opacity-70">Bespoke typographic systems and iconic marks tailored for modern, high-growth entities.</p>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3 text-[10px] font-bold tracking-widest text-on-surface-variant uppercase">
+<span class="size-1 bg-tertiary rounded-full"></span> Logo Systems
+                </div>
+<div class="flex items-center gap-3 text-[10px] font-bold tracking-widest text-on-surface-variant uppercase">
+<span class="size-1 bg-tertiary rounded-full"></span> Type Curation
+                </div>
+</div>
+</div>
+<!-- Service Card 4 -->
+<div class="group glass-card p-8 rounded-2xl hover:translate-y-[-8px] transition-all duration-500">
+<div class="size-12 rounded-xl bg-primary-fixed-dim/10 flex items-center justify-center mb-8 border border-primary-fixed-dim/20">
+<span class="material-symbols-outlined text-primary-fixed-dim text-2xl" data-icon="gesture">gesture</span>
+</div>
+<h3 class="text-on-surface text-xl font-headline font-bold mb-4">Experience Design</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-8 opacity-70">Immersive digital interfaces that prioritize rhythm, visual flow, and intuitive friction.</p>
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3 text-[10px] font-bold tracking-widest text-on-surface-variant uppercase">
+<span class="size-1 bg-primary-fixed-dim rounded-full"></span> Interface Craft
+                </div>
+<div class="flex items-center gap-3 text-[10px] font-bold tracking-widest text-on-surface-variant uppercase">
+<span class="size-1 bg-primary-fixed-dim rounded-full"></span> Motion Logic
+                </div>
+</div>
+</div>
+</div>
+</section>
+<!-- The Strategic Process -->
+<section class="py-32">
+<div class="flex flex-col md:flex-row gap-20 relative">
+<div class="md:w-1/3 md:sticky md:top-40 h-fit">
+<span class="text-secondary font-label text-xs uppercase tracking-[0.3em] font-bold mb-4 block">The Methodology</span>
+<h2 class="text-on-surface text-5xl font-headline font-black leading-tight tracking-tighter premium-gradient-text">Curating Digital Craft</h2>
+<p class="text-on-surface-variant mt-8 text-lg opacity-80">A deliberate sequence of curation and precision, designed to deliver results for elite digital products.</p>
+</div>
+<div class="md:w-2/3 flex flex-col gap-32 relative">
+<!-- Step 1 -->
+<div class="relative flex gap-10 group">
+<div class="flex flex-col items-center">
+<div class="size-12 rounded-full glass-card flex items-center justify-center z-10 border border-outline-variant/30 text-primary font-headline font-bold">01</div>
+<div class="w-px h-full bg-gradient-to-b from-primary/20 to-transparent absolute top-12"></div>
+</div>
+<div class="flex flex-col gap-6 pt-1">
+<h4 class="text-on-surface text-2xl font-headline font-bold">Audit &amp; Strategic Synthesis</h4>
+<p class="text-on-surface-variant leading-relaxed opacity-80">Identifying the core signals amidst market noise to define a technical and visual anchor.</p>
+<div class="rounded-2xl overflow-hidden glass-card p-1">
+<img class="w-full h-56 object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000" data-alt="Minimalist design audit setup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEYxlpbwhzO2KzP9BV4zTUfCNXlfvSEvENAxa-IV1AE_AdsQNlLUII7VO6xub8uqyEZqaoguMRIoNdDuV48qdRfsmwjlmXpBkpqGA8vqy0D-i7BQDmnsM4bvoWeINFuSTqSUqT6G2GJxvb5gDCqgHWW5rGff6aHDWL2lVG0R38QWFvuMaaRrLWd4PdWSHnhEfVJMBnevK9BHw80vr6AoNrO7s7Tmkky73Y5VG5iioAd7lyrKOZdpNwQZDj2V1VMr8U1_bt-HMgR5Q"/>
+</div>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative flex gap-10 group">
+<div class="flex flex-col items-center">
+<div class="size-12 rounded-full glass-card flex items-center justify-center z-10 border border-outline-variant/30 text-secondary font-headline font-bold">02</div>
+<div class="w-px h-full bg-gradient-to-b from-secondary/20 to-transparent absolute top-12"></div>
+</div>
+<div class="flex flex-col gap-4 pt-1">
+<h4 class="text-on-surface text-2xl font-headline font-bold">Iterative Prototyping</h4>
+<p class="text-on-surface-variant leading-relaxed opacity-80">Translating strategy into high-fidelity directions, exploring the tension between form and function.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative flex gap-10 group">
+<div class="flex flex-col items-center">
+<div class="size-12 rounded-full bg-primary flex items-center justify-center z-10 border border-primary text-on-primary font-headline font-bold">03</div>
+</div>
+<div class="flex flex-col gap-4 pt-1">
+<h4 class="text-on-surface text-2xl font-headline font-bold">Implementation &amp; Launch</h4>
+<p class="text-on-surface-variant leading-relaxed opacity-80">Executing with precision engineering, ensuring final performance matches the aesthetic vision.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Case Study Highlight -->
+<section class="py-32">
+<div class="glass-card rounded-[32px] overflow-hidden flex flex-col lg:row items-center border border-white/5">
+<div class="flex flex-col lg:flex-row w-full">
+<div class="lg:w-1/2 p-12 md:p-20">
+<span class="text-secondary font-label text-xs uppercase tracking-[0.3em] font-bold mb-8 block">Case Study</span>
+<h2 class="text-on-surface text-4xl font-headline font-bold mb-8 leading-tight">The Ethereal Project: Strategic Precision</h2>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-12 opacity-80">
+                  Transforming a fragmented technology brand into a cohesive, high-end digital ecosystem through deliberate visual curation.
+                </p>
+<button class="flex items-center gap-3 text-primary font-bold tracking-widest uppercase text-xs group">
+<span>Explore Case Study</span>
+<span class="material-symbols-outlined group-hover:translate-x-2 transition-transform" data-icon="trending_flat">trending_flat</span>
+</button>
+</div>
+<div class="lg:w-1/2 w-full h-[500px] relative">
+<div class="absolute inset-0 bg-gradient-to-r from-background to-transparent z-10 hidden lg:block"></div>
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="Abstract 3D render" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQleV-WqKnu5OUNB3uMumlJX5oaf30iFPsN9ZUi9x-u5civdXmJ6bi2qCt0iTa1NiobwVD9_qUfjDQY5Xuls8kZI72Zos917pDg72akgZ_Ptgqi5aa2GxhuPOawxuFoVzHoaE2BCxuloALCRyA7VIsdf8Sxi3WQ4yi_9UEqqI9tvv42wTocoTe3BzarrRkI2c7q-IdrqpTockqHltKvIZrdVbRcfwrzPksfUghZiXihYuCgAgxJoGblG-Yivnvku12xlfm0oUPKM0"/>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-32">
+<div class="relative glass-card rounded-[40px] p-12 md:p-24 overflow-hidden text-center border-white/10">
+<div class="aurora-blur absolute -top-1/2 -right-1/4 w-[600px] h-[600px] bg-primary/30 rounded-full"></div>
+<div class="relative z-10 max-w-3xl mx-auto">
+<h2 class="text-on-surface text-4xl md:text-6xl font-headline font-black mb-10 leading-tight tracking-tighter">Ready to redefine your brand's digital soul?</h2>
+<p class="text-on-surface-variant text-xl mb-14 opacity-70">Limited availability for strategic partnerships in Q3.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-6">
+<button class="h-16 px-12 bg-primary text-on-primary font-bold rounded-2xl text-lg hover:scale-105 transition-all shadow-2xl shadow-primary/30 uppercase tracking-widest text-sm">
+                  Start a Project
+                </button>
+<button class="h-16 px-12 glass-card text-on-surface font-bold rounded-2xl text-lg hover:bg-surface-container transition-all border border-white/10 uppercase tracking-widest text-sm">
+                  Get in Touch
+                </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="py-32 border-t border-white/5">
+<div class="flex flex-col md:flex-row justify-between items-start gap-16">
+<div class="flex flex-col gap-8">
+<div class="flex items-center gap-3 text-on-surface">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fill="currentColor" fill-rule="evenodd"></path>
+<path clip-rule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<span class="text-2xl font-headline font-bold tracking-tight">Chiti Studio</span>
+</div>
+<p class="text-on-surface-variant max-w-xs text-sm leading-relaxed opacity-70 uppercase tracking-widest text-[10px] font-bold">
+                Strategic precision. Digital curation. Elevating brands for an immersive world.
+              </p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-20">
+<div class="flex flex-col gap-6">
+<span class="text-on-surface text-[10px] font-bold tracking-[0.3em] uppercase opacity-40">Explore</span>
+<a class="text-on-surface-variant text-sm hover:text-primary transition-colors" href="#">Work</a>
+<a class="text-on-surface-variant text-sm hover:text-primary transition-colors" href="#">Services</a>
+<a class="text-on-surface-variant text-sm hover:text-primary transition-colors" href="#">Journal</a>
+</div>
+<div class="flex flex-col gap-6">
+<span class="text-on-surface text-[10px] font-bold tracking-[0.3em] uppercase opacity-40">Network</span>
+<a class="text-on-surface-variant text-sm hover:text-primary transition-colors" href="#">Instagram</a>
+<a class="text-on-surface-variant text-sm hover:text-primary transition-colors" href="#">LinkedIn</a>
+<a class="text-on-surface-variant text-sm hover:text-primary transition-colors" href="#">Dribbble</a>
+</div>
+<div class="flex flex-col gap-6">
+<span class="text-on-surface text-[10px] font-bold tracking-[0.3em] uppercase opacity-40">Legal</span>
+<a class="text-on-surface-variant text-sm hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="text-on-surface-variant text-sm hover:text-primary transition-colors" href="#">Terms</a>
+</div>
+</div>
+</div>
+<div class="mt-32 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between gap-6 text-on-surface-variant text-[10px] font-bold uppercase tracking-[0.4em] opacity-40">
+<span>© 2024 Chiti Studio. Built with Strategic Precision.</span>
+<span>Based in New York — Available Worldwide.</span>
+</div>
+</footer>
+</div>
+</div>
+</div>
+</div>
+</body></html>

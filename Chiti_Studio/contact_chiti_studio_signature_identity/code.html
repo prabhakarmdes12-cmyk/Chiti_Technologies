@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact — Chiti Studio</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800;900&amp;family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-fixed-variant": "#370086",
+                        "primary-container": "#ae8dff",
+                        "on-tertiary-fixed": "#37001d",
+                        "on-secondary-fixed-variant": "#005969",
+                        "on-tertiary-fixed-variant": "#740044",
+                        "surface-container-lowest": "#000000",
+                        "on-secondary": "#004b58",
+                        "tertiary": "#ff6daf",
+                        "surface-variant": "#23262c",
+                        "inverse-surface": "#f9f9ff",
+                        "on-error-container": "#ffb2b9",
+                        "surface-container-low": "#111318",
+                        "outline-variant": "#46484d",
+                        "on-primary": "#39008c",
+                        "primary-dim": "#8455ef",
+                        "tertiary-dim": "#ff67ad",
+                        "secondary": "#53ddfc",
+                        "on-surface": "#f6f6fc",
+                        "secondary-fixed-dim": "#48d4f3",
+                        "secondary-dim": "#40ceed",
+                        "outline": "#74757a",
+                        "error-dim": "#d73357",
+                        "on-tertiary": "#4b002a",
+                        "on-tertiary-container": "#2f0018",
+                        "secondary-container": "#00687a",
+                        "on-error": "#490013",
+                        "error": "#ff6e84",
+                        "surface-bright": "#292c32",
+                        "inverse-on-surface": "#53555a",
+                        "background": "#0c0e12",
+                        "tertiary-container": "#fa53a4",
+                        "surface-container-high": "#1d2025",
+                        "on-primary-container": "#2b006e",
+                        "surface-container": "#171a1f",
+                        "on-primary-fixed": "#000000",
+                        "on-surface-variant": "#aaabb0",
+                        "tertiary-fixed-dim": "#ff73b1",
+                        "on-secondary-container": "#ecfaff",
+                        "on-secondary-fixed": "#003a45",
+                        "primary": "#ba9eff",
+                        "surface": "#0c0e12",
+                        "secondary-fixed": "#65e1ff",
+                        "error-container": "#a70138",
+                        "surface-tint": "#ba9eff",
+                        "primary-fixed-dim": "#a27cff",
+                        "surface-container-highest": "#23262c",
+                        "primary-fixed": "#ae8dff",
+                        "on-background": "#f6f6fc",
+                        "tertiary-fixed": "#ff8cbc",
+                        "surface-dim": "#0c0e12",
+                        "inverse-primary": "#6e3bd7"
+                    },
+                    fontFamily: {
+                        "headline": ["Epilogue"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                    animation: {
+                        'aurora-slow': 'aurora 25s infinite alternate ease-in-out',
+                        'aurora-medium': 'aurora 20s infinite alternate-reverse ease-in-out',
+                        'aurora-fast': 'aurora 15s infinite alternate ease-in-out',
+                    },
+                    keyframes: {
+                        aurora: {
+                            '0%': { transform: 'translate(0, 0) scale(1)' },
+                            '100%': { transform: 'translate(10%, 10%) scale(1.1)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .aurora-blur {
+            filter: blur(140px);
+        }
+        .glass-card {
+            background: rgba(17, 19, 24, 0.4);
+            backdrop-filter: blur(32px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+        }
+        .neon-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(186, 158, 255, 0.5), transparent);
+        }
+        .neon-text-glow {
+            text-shadow: 0 0 15px rgba(83, 221, 252, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container min-h-screen overflow-x-hidden">
+<!-- Global Navigation Shell -->
+<header class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-8 py-3 bg-zinc-950/60 backdrop-blur-xl border border-white/5 rounded-full mt-6 mx-auto w-[90%] max-w-7xl shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
+<div class="text-xl font-bold tracking-tighter text-zinc-100 font-headline">Chiti Studio</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-zinc-400 hover:text-zinc-100 transition-colors duration-400 font-headline tracking-tight font-bold" href="#">Work</a>
+<a class="text-zinc-400 hover:text-zinc-100 transition-colors duration-400 font-headline tracking-tight font-bold" href="#">Services</a>
+<a class="text-zinc-400 hover:text-zinc-100 transition-colors duration-400 font-headline tracking-tight font-bold" href="#">About</a>
+<a class="text-zinc-400 hover:text-zinc-100 transition-colors duration-400 font-headline tracking-tight font-bold" href="#">Journal</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-zinc-400 hover:text-zinc-100 transition-all" data-icon="dark_mode">dark_mode</button>
+<button class="bg-primary hover:bg-primary-dim text-on-primary px-5 py-2 rounded-full font-headline font-bold text-sm transition-all duration-300 scale-95 hover:scale-100 active:scale-95 shadow-[0_0_20px_rgba(186,158,255,0.3)]">Start a Project</button>
+</div>
+</header>
+<main class="relative pt-44 pb-32">
+<!-- Aurora Atmospheric Background -->
+<div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+<div class="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-primary-dim/20 aurora-blur rounded-full animate-aurora-slow"></div>
+<div class="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-secondary-dim/15 aurora-blur rounded-full animate-aurora-medium"></div>
+<div class="absolute top-[30%] right-[20%] w-[40%] h-[50%] bg-tertiary-dim/10 aurora-blur rounded-full animate-aurora-fast"></div>
+<!-- Ultra Thin Grid Overlay -->
+<div class="absolute inset-0 opacity-[0.05]" style="background-image: linear-gradient(rgba(246, 246, 252, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(246, 246, 252, 0.2) 1px, transparent 1px); background-size: 80px 80px;"></div>
+</div>
+<div class="max-w-7xl mx-auto px-8">
+<!-- Hero Section -->
+<section class="mb-24 max-w-4xl">
+<span class="text-secondary font-label uppercase tracking-[0.3em] text-[10px] mb-6 block font-bold neon-text-glow">Ready to evolve?</span>
+<h1 class="font-headline text-6xl md:text-8xl font-extrabold tracking-tight text-on-surface mb-8 leading-[0.9]">
+                Tell us about <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-dim to-primary">your project</span>
+</h1>
+<p class="text-on-surface-variant text-xl md:text-2xl font-light leading-relaxed max-w-2xl">
+                We work with founders, startups, and growing businesses looking for design that stands out and systems that scale.
+            </p>
+</section>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+<!-- Contact Form (Main Column) -->
+<div class="lg:col-span-7 glass-card p-10 md:p-12 rounded-[2rem]">
+<form class="space-y-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+<!-- Name -->
+<div class="group relative">
+<label class="block text-[10px] uppercase tracking-widest text-on-surface-variant font-label mb-2 group-focus-within:text-primary transition-colors">Name</label>
+<input class="w-full bg-transparent border-0 border-b border-white/10 py-4 px-0 focus:ring-0 focus:border-primary text-on-surface placeholder:text-on-surface-variant/30 transition-all font-body text-lg" placeholder="John Doe" type="text"/>
+<div class="absolute bottom-0 left-0 h-[1px] w-0 bg-primary group-focus-within:w-full transition-all duration-500"></div>
+</div>
+<!-- Email -->
+<div class="group relative">
+<label class="block text-[10px] uppercase tracking-widest text-on-surface-variant font-label mb-2 group-focus-within:text-primary transition-colors">Email Address</label>
+<input class="w-full bg-transparent border-0 border-b border-white/10 py-4 px-0 focus:ring-0 focus:border-primary text-on-surface placeholder:text-on-surface-variant/30 transition-all font-body text-lg" placeholder="john@company.com" type="email"/>
+<div class="absolute bottom-0 left-0 h-[1px] w-0 bg-primary group-focus-within:w-full transition-all duration-500"></div>
+</div>
+<!-- Company -->
+<div class="group relative">
+<label class="block text-[10px] uppercase tracking-widest text-on-surface-variant font-label mb-2 group-focus-within:text-primary transition-colors">Company / Brand</label>
+<input class="w-full bg-transparent border-0 border-b border-white/10 py-4 px-0 focus:ring-0 focus:border-primary text-on-surface placeholder:text-on-surface-variant/30 transition-all font-body text-lg" placeholder="The Future Inc." type="text"/>
+<div class="absolute bottom-0 left-0 h-[1px] w-0 bg-primary group-focus-within:w-full transition-all duration-500"></div>
+</div>
+<!-- Budget -->
+<div class="group relative">
+<label class="block text-[10px] uppercase tracking-widest text-on-surface-variant font-label mb-2 group-focus-within:text-primary transition-colors">Budget Range</label>
+<select class="w-full bg-transparent border-0 border-b border-white/10 py-4 px-0 focus:ring-0 focus:border-primary text-on-surface transition-all font-body appearance-none text-lg">
+<option class="bg-surface-container-high">$10k – $25k</option>
+<option class="bg-surface-container-high">$25k – $50k</option>
+<option class="bg-surface-container-high">$50k – $100k</option>
+<option class="bg-surface-container-high">$100k+</option>
+</select>
+<div class="absolute bottom-0 left-0 h-[1px] w-0 bg-primary group-focus-within:w-full transition-all duration-500"></div>
+</div>
+</div>
+<!-- Project Type Chips -->
+<div>
+<label class="block text-[10px] uppercase tracking-widest text-on-surface-variant font-label mb-6">Project Type</label>
+<div class="flex flex-wrap gap-4">
+<button class="px-7 py-3 rounded-full border border-white/10 bg-white/5 text-on-surface-variant text-sm font-medium hover:border-primary/50 hover:bg-primary/5 hover:text-primary transition-all duration-300" type="button">New Website</button>
+<button class="px-7 py-3 rounded-full border border-primary bg-primary/10 text-primary text-sm font-bold transition-all duration-300 shadow-[0_0_20px_rgba(186,158,255,0.15)]" type="button">App UI/UX</button>
+<button class="px-7 py-3 rounded-full border border-white/10 bg-white/5 text-on-surface-variant text-sm font-medium hover:border-primary/50 hover:bg-primary/5 hover:text-primary transition-all duration-300" type="button">Branding</button>
+<button class="px-7 py-3 rounded-full border border-white/10 bg-white/5 text-on-surface-variant text-sm font-medium hover:border-primary/50 hover:bg-primary/5 hover:text-primary transition-all duration-300" type="button">Product System</button>
+</div>
+</div>
+<!-- Message -->
+<div class="group relative">
+<label class="block text-[10px] uppercase tracking-widest text-on-surface-variant font-label mb-2 group-focus-within:text-primary transition-colors">Message</label>
+<textarea class="w-full bg-transparent border-0 border-b border-white/10 py-4 px-0 focus:ring-0 focus:border-primary text-on-surface placeholder:text-on-surface-variant/30 transition-all font-body resize-none text-lg" placeholder="Briefly describe your goals, timeline, and any existing brand assets..." rows="4"></textarea>
+<div class="absolute bottom-0 left-0 h-[1px] w-0 bg-primary group-focus-within:w-full transition-all duration-500"></div>
+</div>
+<!-- Action -->
+<div class="pt-8">
+<button class="group relative w-full md:w-auto px-16 py-6 bg-primary text-on-primary rounded-full font-headline font-black text-xl overflow-hidden transition-all duration-500 hover:shadow-[0_0_50px_rgba(186,158,255,0.5)] active:scale-[0.98]" type="submit">
+<span class="relative z-10">Send Inquiry</span>
+<div class="absolute inset-0 bg-gradient-to-r from-primary via-primary-fixed to-primary-dim opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+</button>
+</div>
+</form>
+</div>
+<!-- Sidebar / Qualification (Right Column) -->
+<aside class="lg:col-span-5 space-y-12">
+<!-- Right Fit Card -->
+<div class="glass-card p-10 rounded-[2rem] relative overflow-hidden">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary/10 aurora-blur rounded-full"></div>
+<h3 class="font-headline text-2xl font-bold mb-8 text-on-surface">Is Chiti Studio the right fit?</h3>
+<ul class="space-y-7 mb-12">
+<li class="flex items-start gap-5 group">
+<div class="p-1 rounded-full bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
+<span class="material-symbols-outlined text-secondary text-2xl block" data-icon="check_circle">check_circle</span>
+</div>
+<div>
+<h4 class="text-base font-bold text-on-surface mb-1">Modern &amp; High-End Branding</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">For companies looking to redefine their visual soul.</p>
+</div>
+</li>
+<li class="flex items-start gap-5 group">
+<div class="p-1 rounded-full bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
+<span class="material-symbols-outlined text-secondary text-2xl block" data-icon="check_circle">check_circle</span>
+</div>
+<div>
+<h4 class="text-base font-bold text-on-surface mb-1">Product &amp; UI Systems</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Scalable design systems built for long-term growth.</p>
+</div>
+</li>
+<li class="flex items-start gap-5 group">
+<div class="p-1 rounded-full bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
+<span class="material-symbols-outlined text-secondary text-2xl block" data-icon="check_circle">check_circle</span>
+</div>
+<div>
+<h4 class="text-base font-bold text-on-surface mb-1">Editorial Web Experiences</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Breaking the grid with intentional and elite layouts.</p>
+</div>
+</li>
+</ul>
+<div class="neon-divider mb-10"></div>
+<div class="flex items-center gap-4 mb-4">
+<span class="material-symbols-outlined text-tertiary text-xl" data-icon="schedule">schedule</span>
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface">Response Time</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Typically within 24-48 hours. We value deep work and intentional responses over speed.</p>
+</div>
+<!-- Contact Details -->
+<div class="px-4 space-y-10">
+<div>
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant font-label mb-3 block font-bold">Direct Contact</span>
+<a class="text-3xl font-headline font-bold text-on-surface hover:text-primary transition-colors duration-300 relative inline-block group" href="mailto:hello@chiti.studio">
+                            hello@chiti.studio
+                            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-500"></span>
+</a>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div>
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant font-label mb-4 block font-bold">Social</span>
+<div class="flex flex-col gap-3">
+<a class="text-sm font-bold text-on-surface-variant hover:text-secondary transition-colors" href="#">LinkedIn</a>
+<a class="text-sm font-bold text-on-surface-variant hover:text-secondary transition-colors" href="#">Instagram</a>
+<a class="text-sm font-bold text-on-surface-variant hover:text-secondary transition-colors" href="#">Dribbble</a>
+</div>
+</div>
+<div>
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant font-label mb-4 block font-bold">Location</span>
+<p class="text-sm font-bold text-on-surface leading-loose">Remote-first, <br/>Based Globally.</p>
+</div>
+</div>
+<div class="p-8 glass-card rounded-2xl border border-white/5">
+<p class="text-sm text-on-surface-variant italic leading-relaxed font-medium">
+                            “Whether you need a full website, a product redesign, or a long-term design partner, we’d love to hear from you.”
+                        </p>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-zinc-950 w-full pt-32 pb-16 px-8 relative overflow-hidden">
+<!-- Footer Glow -->
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60%] h-[30%] bg-primary/5 aurora-blur rounded-full pointer-events-none"></div>
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12 relative z-10">
+<div class="max-w-md">
+<div class="text-4xl font-headline font-black text-white mb-8 tracking-tighter">Chiti Studio</div>
+<p class="text-zinc-500 font-body text-base tracking-wide leading-relaxed mb-8 max-w-sm">
+                Clean interfaces. Strong systems. Better results. We build digital artifacts that stand the test of time.
+            </p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-16">
+<div class="flex flex-col gap-5">
+<span class="text-white/30 uppercase tracking-[0.2em] text-[10px] font-bold">Social</span>
+<a class="text-zinc-400 hover:text-primary transition-colors duration-300 font-body text-sm" href="#">Instagram</a>
+<a class="text-zinc-400 hover:text-primary transition-colors duration-300 font-body text-sm" href="#">LinkedIn</a>
+<a class="text-zinc-400 hover:text-primary transition-colors duration-300 font-body text-sm" href="#">Twitter</a>
+</div>
+<div class="flex flex-col gap-5">
+<span class="text-white/30 uppercase tracking-[0.2em] text-[10px] font-bold">Studio</span>
+<a class="text-zinc-400 hover:text-primary transition-colors duration-300 font-body text-sm" href="#">Contact</a>
+<a class="text-zinc-400 hover:text-primary transition-colors duration-300 font-body text-sm" href="#">Privacy</a>
+<a class="text-zinc-400 hover:text-primary transition-colors duration-300 font-body text-sm" href="#">Terms</a>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-32 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 relative z-10">
+<p class="text-zinc-500 font-body text-sm tracking-wide leading-relaxed opacity-60">
+            © 2024 Chiti Studio. Architecture of the Digital Soul.
+        </p>
+<div class="flex gap-4">
+<div class="h-12 w-12 rounded-full border border-white/10 flex items-center justify-center group cursor-pointer hover:bg-primary/10 hover:border-primary/30 transition-all duration-500">
+<span class="material-symbols-outlined text-zinc-500 group-hover:text-primary text-xl transition-colors" data-icon="north_east">north_east</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

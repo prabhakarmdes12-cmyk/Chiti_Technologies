@@ -1,0 +1,87 @@
+================================================================================
+CHITI TECHNOLOGIES - MASTER UDS & PORTFOLIO REQUIREMENTS DOCUMENT
+================================================================================
+Document Type: Production-Grade System Architecture Blueprint
+Reference Standards: Material Design 3, IBM Carbon, Vercel Geist
+Target Artifacts: 
+1. design_system_showcase_v3.html (Chiti UDS Core Repository)
+2. chiti_v3_portfolio_showcase.html (Client-Facing Enterprise Portfolio)
+
+================================================================================
+PART A: CHITI UNIFIED DESIGN SYSTEM (UDS V3)
+Goal: A full-featured, enterprise-grade component architecture and governance model.
+================================================================================
+
+1. THE FOUNDATIONS (Core Variables & Rules)
+   [ ] Design Tokens: Centralized JSON map linking hex codes to semantic layers.
+   [ ] Semantic Color Protocol: The "Sapphire/Teal" DataViz safety protocol alongside semantic states (Success, Warning, Error).
+   [ ] Typography Engine: Font-families (Outfit, Inter, JetBrains) mapped to specific DOM scales (H1-H6, Body, Label).
+   [ ] The 8-Point Spatial Grid: Absolute geometrical spacing mapped to 8px intervals.
+   [ ] Elevation & Depth: Z-index and shadow box mechanics defining physical layering.
+   [ ] Motion & Haptics: Web Audio API integration and specific Cubic-Bezier physics timing arrays.
+
+2. ASSEMBLED COMPONENTS (The Exhaustive React Kit)
+   *A full design system must document all functional states of the following UI Nodes:*
+   
+   [ ] Form & Input Controls: 
+       - Buttons (Primary, Outline, Ghost, Danger)
+       - Text Inputs (Default, Focus, Invalid, Disabled)
+       - Select/Dropdown Arrays
+       - Hardware Toggles & Checkboxes
+   
+   [ ] Navigation Modules: 
+       - Top Application Headers
+       - Collapsible Sidebar Drawers
+       - Breadcrumbs & Pagination Arrays
+   
+   [ ] Data Display & Layout: 
+       - The 'ChitiCard' (3D Physics enabled)
+       - Enterprise Data Tables (Sortable/Filterable)
+       - Badges & Status Chips
+       - Modals & Dialogue Overlays
+       - Interactive Tooltips
+       
+   [ ] Feedback & State Handling: 
+       - Toasts / Snackbars (Success/Failure states)
+       - Progress Loaders & Spinners
+       - Hydration Skeletons (ARIA compliant)
+
+3. PATTERNS & GOVERNANCE
+   [ ] Empty States logic (What happens when data is zero?).
+   [ ] Validation & Error Boundaries.
+   [ ] Figma Handoff Protocols: Auto-layout mandates vs free-dragging.
+   [ ] Accessibility (A11y): Strict WCAG 2.1 compliance, Keyboard trapping logic, Tab-indexing.
+
+================================================================================
+PART B: THE PORTFOLIO ARCHITECTURE (Client Pitch)
+Goal: An immersive presentation proving Chiti Technologies builds ecosystems, not layouts.
+================================================================================
+
+1. THE CHITI EXPERIENCE (The Hook)
+   [ ] Cinematic Hero Hook: A massively immersive, code-driven visual entrance (e.g., reactive auroras or WebGL) asserting technical dominance immediately.
+   
+2. STRATEGIC NARRATIVE (The "Chiti Way")
+   [ ] Empirical Discovery: Showcasing raw wireframes, user empathy mapping, and data-flow diagrams to prove UI is born from deep research, not guessing.
+   [ ] Omnichannel Logistics: Displaying how our digital code affects physical world assets (e.g., shipping networks).
+
+3. PROJECT SHOWCASES (Full-Spectrum Implementation)
+   [ ] B2B Infrastructure: NetQ Command (Handling extreme Data Density).
+   [ ] Mobile D2C Commerce: BazaarSetu (Rendering fluid checkout boundaries within native Mobile Device Mockups).
+   [ ] Generative AI Interfaces: Project Nova (Designing intent-based systems with human-centric tone protocols).
+
+4. MEASURABLE BUSINESS IMPACT (ROI Metrics)
+   [ ] Verified Conversion Data: Hard statistics appended to every case study (e.g., "-42% Action Acknowledgement Time").
+
+5. THE CHITI ETHICAL ARCHITECTURE 
+   [ ] Algorithmic Transparency: Our mandate that Generative AI must identify itself in UI layers.
+   [ ] The Frictionless Commerce Pledge: Our strict rejection of deceptive e-commerce Dark Patterns.
+
+6. CONVERSION FUNNEL
+   [ ] Industry Testimonials.
+   [ ] Agency Capabilities Matrix.
+   [ ] Strong "Book a Consultation" Footer block.
+
+================================================================================
+CONCLUSION:
+The Chiti Ecosystem relies on zero outside templates. It is an exclusive, proprietary architecture designed for global scalability.
+================================================================================

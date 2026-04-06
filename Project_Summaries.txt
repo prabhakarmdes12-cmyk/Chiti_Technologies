@@ -1,0 +1,50 @@
+1. Arcade
+Executive Summary: A web-based free arcade gaming zone application offering interactive casual games.
+
+2. AuraPanchang
+Executive Summary: A Hindu panchang and astrology calendar web application providing timing and astronomical information.
+
+3. aura-quest-main
+Executive Summary: Related to the Aura ecosystem, likely a quest or astrological journey application based on the AuraPanchang project.
+
+4. Baloo
+Executive Summary: "Project Baloo | The Guardian Companion" – a web application focused on guardianship and user companionship.
+
+5. BatchFlow
+Executive Summary: A CRM (Customer Relationship Management) batch processing application designed for managing workflows.
+
+6. BazaarSetu
+Executive Summary: A hyperlocal multi-vendor grocery commerce platform focusing on connecting local markets with consumers.
+
+7. Bhatia_Master_Classes
+Executive Summary: A premium educational coaching website for JEE, NEET, and Foundation preparation based in Patna, offering daily practice papers and test series.
+
+8. Bighi Brothers
+Executive Summary: Phase one of an e-commerce and D2C (Direct-to-Consumer) transformation website for the Bighi Brothers brand.
+
+9. BighiBrothers_v3
+Executive Summary: The third iteration (v3) of the Bighi Brothers project, comprising a modern wireframe, next-gen UI architecture, and a streamlined e-commerce platform.
+
+10. Chiti_Studio
+Executive Summary: A premium, high-fidelity interactive landing page project featuring cinematic, parallax, and physics-driven elements to enhance brand presence.
+
+11. Cosmic tantra march 2026
+Executive Summary: A mystical or esoteric web platform operating under the domain of "CosmicTantra".
+
+12. Kids Project
+Executive Summary: A collection of educational and interactive web-based games for children, including "World Explorer" and "Island of Discovery".
+
+13. Nilus Collection
+Executive Summary: A curated design and UI presentation project consisting of category and product blueprints for a digital catalog or store.
+
+14. Portfolio website 2026
+Executive Summary: The 2026 iteration of Prabhakar Kumar's personal UX Designer portfolio, showcasing case studies, featured work, and photography/painting sections.
+
+15. netqcommand
+Executive Summary: A technical monitoring dashboard that has been transformed into a revenue-generating, sellable SaaS product (NetQ Command) specifically targeting IT service providers.
+
+16. ssgnetq
+Executive Summary: An enterprise-facing Electronix Infrastructure & Security Platform website showcasing premium IT services.
+
+17. New folder
+Executive Summary: An unidentified workspace directory pending project assignment.

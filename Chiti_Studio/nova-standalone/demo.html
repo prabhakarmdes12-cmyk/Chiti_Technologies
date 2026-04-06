@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nova Demo - Adaptive Cinematic Concierge</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%);
+      color: white;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    
+    h1 {
+      font-size: 48px;
+      font-weight: 300;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .subtitle {
+      font-size: 20px;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 48px;
+    }
+    
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    
+    .feature-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.3s;
+    }
+    
+    .feature-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-4px);
+    }
+    
+    .feature-card h3 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    
+    .feature-card p {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 14px;
+    }
+    
+    .code-block {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      overflow-x: auto;
+    }
+    
+    .code-block h3 {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .code-block code {
+      font-family: 'Monaco', 'Menlo', monospace;
+      font-size: 14px;
+      color: #a5b4fc;
+      white-space: pre;
+    }
+    
+    .cta {
+      display: inline-block;
+      padding: 16px 32px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      border-radius: 12px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: none;
+    }
+    
+    .cta:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(139, 92, 246, 0.4);
+    }
+    
+    .note {
+      background: rgba(251, 191, 36, 0.1);
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-top: 32px;
+      color: #fbbf24;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Nova</h1>
+    <p class="subtitle">Adaptive Cinematic Concierge - Standalone Demo</p>
+    
+    <div class="features">
+      <div class="feature-card">
+        <h3>Floating Sphere Trigger</h3>
+        <p>Non-intrusive presence that activates on user interaction</p>
+      </div>
+      <div class="feature-card">
+        <h3>Video-Driven Conversation</h3>
+        <p>Cinematic videos create emotional connection before questions</p>
+      </div>
+      <div class="feature-card">
+        <h3>Lead Qualification</h3>
+        <p>Automatic scoring based on project type, budget, timeline</p>
+      </div>
+      <div class="feature-card">
+        <h3>Universal Embed</h3>
+        <p>One script tag works on any website - WordPress, React, etc.</p>
+      </div>
+    </div>
+    
+    <div class="code-block">
+      <h3>Add to your website</h3>
+      <code>&lt;script 
+  src="nova-embed.js" 
+  data-api="/api/lead"
+&gt;&lt;/script&gt;</code>
+    </div>
+    
+    <button class="cta" onclick="Nova && Nova.open()">
+      Open Nova Demo
+    </button>
+    
+    <div class="note">
+      ⚠️ Videos not loaded in demo mode. Copy your videos to `public/nova/videos/` for full experience.
+    </div>
+  </div>
+
+  <!-- Nova Embed Script -->
+  <script src="dist/nova-embed.js"></script>
+</body>
+</html>

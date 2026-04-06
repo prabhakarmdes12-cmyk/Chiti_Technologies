@@ -1,0 +1,308 @@
+You’re not shooting “videos.”
+You’re building a modular narrative system—like a game engine where clips are triggered contextually.
+
+🎬 NOVA VIDEO SYSTEM = “MODULAR CINEMA”
+
+Each persona has:
+
+Core clips (always used)
+Branch clips (decision-based)
+Micro-reactions (glue between states)
+🧠 1. MASTER STRUCTURE (LIKE A GAME ENGINE)
+ENTRY (Sphere Idle Loop)
+   ↓
+WELCOME (Video)
+   ↓
+INTENT QUESTION
+   ↓
+[BRANCH A / B / C]
+   ↓
+FOLLOW-UP (Adaptive)
+   ↓
+VALIDATION
+   ↓
+LEAD CAPTURE
+   ↓
+CLOSURE
+
+Each node = video clip
+Each edge = user decision / behavior
+
+🌸 2. SOFT IDOL — SHOT LIST (Warm Conversion Layer)
+🎯 Tone: welcoming, human, safe
+🎬 CORE CLIPS
+1. Idle Loop (3–4 sec)
+Soft breathing
+Slight head tilt
+Subtle blink + micro smile
+👉 Loopable
+2. Welcome
+
+Dialogue:
+“Hey… I’ve been expecting someone like you.”
+
+Shot:
+
+Medium close-up
+Slight lean forward
+Eye contact within 1 sec
+3. Intent Prompt
+
+Dialogue:
+“What brings you here today?”
+
+Shot:
+
+Gentle curiosity
+Eyebrow micro raise
+🎬 BRANCH CLIPS
+A. “Just exploring”
+
+Dialogue:
+“That’s perfect. No pressure.”
+
+Shot:
+
+Soft smile
+Slight head tilt
+B. “I want a website”
+
+Dialogue:
+“Got it… let’s make that simple.”
+
+Shot:
+
+Reassuring nod
+C. Hesitation / Idle
+
+Dialogue:
+“Take your time… I’m here.”
+
+Shot:
+
+Soft glance, relaxed posture
+🎬 VALIDATION
+
+Dialogue:
+“That actually makes a lot of sense.”
+
+👉 Critical trust moment
+
+Slight smile + eye softening
+🎬 LEAD CAPTURE
+
+Dialogue:
+“Where should I send this to you?”
+
+👉 Must feel natural
+
+No UI-looking gesture
+🎬 CLOSURE
+
+Dialogue:
+“I’ll take this forward for you.”
+
+Warm smile
+Slight nod
+Fade out
+🧠 3. CREATIVE DIRECTOR — SHOT LIST (Authority Layer)
+🎯 Tone: precise, confident, premium
+🎬 CORE CLIPS
+1. Idle Loop
+Still posture
+Minimal blinking
+Controlled presence
+2. Welcome
+
+Dialogue:
+“Let’s get straight to it.”
+
+Shot:
+
+Direct eye contact
+No smile
+3. Intent Prompt
+
+Dialogue:
+“What exactly are you building?”
+
+Shot:
+
+Slight forward lean
+Analytical gaze
+🎬 BRANCH CLIPS
+A. “Startup / idea”
+
+Dialogue:
+“Alright. Then clarity matters more than speed.”
+
+👉 Establish authority
+
+B. “Website”
+
+Dialogue:
+“Most websites fail at positioning. We won’t.”
+
+👉 Strong statement
+
+C. High Intent User
+
+Dialogue:
+“Good. You already know what you need.”
+
+👉 Reinforcement
+
+🎬 VALIDATION
+
+Dialogue:
+“This is workable.”
+
+👉 Minimal emotion, high impact
+
+🎬 LEAD CAPTURE
+
+Dialogue:
+“I’ll map this properly. Where do I send it?”
+
+👉 Feels like deliverable
+
+🎬 CLOSURE
+
+Dialogue:
+“I’ll take this forward.”
+
+Short nod
+Cut clean
+⚡ 4. EDGE / EXPERIMENTAL — SHOT LIST (Attention Layer)
+🎯 Tone: intriguing, different, slightly mysterious
+🎬 CORE CLIPS
+1. Idle Loop
+Minimal movement
+Slight glitch light reflection
+Eye shift
+2. Welcome
+
+Dialogue:
+“You found this.”
+
+👉 Not “hi” → intrigue
+
+3. Intent Prompt
+
+Dialogue:
+“So… what are you looking for?”
+
+👉 Slight pause before “so”
+
+🎬 BRANCH CLIPS
+A. Exploration
+
+Dialogue:
+“Good. Most people don’t even get this far.”
+
+B. Website
+
+Dialogue:
+“Then you’re already thinking too small.”
+
+👉 Pattern interrupt
+
+C. Idle
+
+Dialogue:
+“…still deciding?”
+
+👉 Whisper tone
+
+🎬 VALIDATION
+
+Dialogue:
+“Now it’s getting interesting.”
+
+👉 Half-smile
+
+🎬 LEAD CAPTURE
+
+Dialogue:
+“If this is worth building… I’ll need a way to reach you.”
+
+👉 Feels exclusive
+
+🎬 CLOSURE
+
+Dialogue:
+“Let’s see where this goes.”
+
+👉 Leaves loop open
+
+🔁 5. MICRO-REACTIONS (IMPORTANT)
+
+These are your secret weapon.
+
+Shoot 8–10 per persona:
+
+Blink + slight nod
+Half smile
+Thinking look (eyes shift)
+Micro head tilt
+Breathing idle
+
+👉 Used between clips to avoid jump cuts
+
+🎥 6. TECHNICAL SHOOT SETUP
+Camera:
+4K, 24fps
+85mm lens (or equivalent crop)
+Framing:
+Mid-shot + close-up variants
+Same framing across all personas (for seamless switching)
+Lighting:
+Key light (soft)
+Rim neon (blue/purple)
+Background practicals
+Background:
+Same set
+Change lighting per persona (not location)
+🧠 7. GAME-ENGINE STYLE LOGIC
+STATE: WELCOME
+ → play(welcome_clip)
+
+STATE: INTENT
+ → wait(user_input)
+
+IF input == explore
+ → play(soft_branch_explore)
+
+IF input == website
+ → play(director_branch_website)
+
+IF hesitation
+ → play(soft_idle_prompt)
+
+STATE: VALIDATION
+ → play(validation_clip)
+
+STATE: CAPTURE
+ → play(lead_capture_clip)
+
+STATE: EXIT
+ → play(closure_clip)
+⚠️ CRITICAL PRODUCTION RULE
+
+Shoot EVERYTHING in:
+
+same lighting base
+same camera position
+same timing rhythm
+
+So you can:
+
+swap clips dynamically without breaking immersion
+
+🚀 FINAL INSIGHT
+
+What you’re building is:
+
+🎮 A real-time cinematic dialogue engine
+🎭 With a shape-shifting persona
+💼 Acting as your highest-converting salesperson

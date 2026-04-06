@@ -1,0 +1,453 @@
+@import "tailwindcss";
+
+@theme {
+  /* ─── Fonts ─── */
+  --font-headline: "Epilogue", sans-serif;
+  --font-body: "Manrope", sans-serif;
+  --font-label: "Manrope", sans-serif;
+
+  /* ─── Colors (Dark Mode Default) ─── */
+  --color-surface: #0c0e12;
+  --color-surface-dim: #0c0e12;
+  --color-surface-bright: #292c32;
+  --color-surface-container-lowest: #000000;
+  --color-surface-container-low: #111318;
+  --color-surface-container: #171a1f;
+  --color-surface-container-high: #1d2025;
+  --color-surface-container-highest: #23262c;
+  --color-surface-variant: #23262c;
+  --color-surface-tint: #ba9eff;
+
+  --color-background: #0c0e12;
+
+  --color-on-surface: #f6f6fc;
+  --color-on-surface-variant: #aaabb0;
+  --color-on-background: #f6f6fc;
+
+  --color-primary: #ba9eff;
+  --color-primary-dim: #8455ef;
+  --color-primary-fixed: #ae8dff;
+  --color-primary-fixed-dim: #a27cff;
+  --color-on-primary: #39008c;
+  --color-on-primary-fixed: #000000;
+  --color-on-primary-fixed-variant: #370086;
+  --color-on-primary-container: #2b006e;
+  --color-primary-container: #ae8dff;
+  --color-inverse-primary: #6e3bd7;
+
+  --color-secondary: #53ddfc;
+  --color-secondary-dim: #40ceed;
+  --color-secondary-fixed: #65e1ff;
+  --color-secondary-fixed-dim: #48d4f3;
+  --color-on-secondary: #004b58;
+  --color-on-secondary-fixed: #003a45;
+  --color-on-secondary-fixed-variant: #005969;
+  --color-on-secondary-container: #ecfaff;
+  --color-secondary-container: #00687a;
+
+  --color-tertiary: #ff6daf;
+  --color-tertiary-dim: #ff67ad;
+  --color-tertiary-fixed: #ff8cbc;
+  --color-tertiary-fixed-dim: #ff73b1;
+  --color-on-tertiary: #4b002a;
+  --color-on-tertiary-fixed: #37001d;
+  --color-on-tertiary-fixed-variant: #740044;
+  --color-on-tertiary-container: #2f0018;
+  --color-tertiary-container: #fa53a4;
+
+  --color-error: #ff6e84;
+  --color-error-dim: #d73357;
+  --color-on-error: #490013;
+  --color-on-error-container: #ffb2b9;
+  --color-error-container: #a70138;
+
+  --color-outline: #74757a;
+  --color-outline-variant: #46484d;
+
+  --color-inverse-surface: #f9f9ff;
+  --color-inverse-on-surface: #53555a;
+
+  /* ─── Border Radius ─── */
+  --radius-default: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 0.75rem;
+}
+
+/* ─── Light Mode Overrides ─── */
+.light {
+  --color-surface: #fafafa;
+  --color-surface-dim: #f0f0f0;
+  --color-surface-bright: #ffffff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f5f5;
+  --color-surface-container: #efefef;
+  --color-surface-container-high: #e8e8e8;
+  --color-surface-container-highest: #e0e0e0;
+  --color-surface-variant: #e8e0f0;
+  --color-surface-tint: #7c3aed;
+
+  --color-background: #fafafa;
+
+  --color-on-surface: #1a1a2e;
+  --color-on-surface-variant: #555566;
+  --color-on-background: #1a1a2e;
+
+  --color-primary: #7c3aed;
+  --color-primary-dim: #6d28d9;
+  --color-on-primary: #ffffff;
+
+  --color-secondary: #0ea5e9;
+  --color-secondary-dim: #0284c7;
+  --color-on-secondary: #ffffff;
+
+  --color-tertiary: #ec4899;
+  --color-tertiary-dim: #db2777;
+  --color-on-tertiary: #ffffff;
+
+  --color-outline: #a0a0b0;
+  --color-outline-variant: #d0d0dd;
+
+  --color-inverse-surface: #1a1a2e;
+  --color-inverse-on-surface: #f0f0f5;
+}
+
+/* ─── Base Styles ─── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+/* ─── Glass Utilities ─── */
+.glass {
+  background: rgba(17, 19, 24, 0.35);
+  backdrop-filter: blur(48px) saturate(1.2);
+  -webkit-backdrop-filter: blur(48px) saturate(1.2);
+  border: 0.5px solid rgba(255, 255, 255, 0.06);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 0 0 0 transparent;
+  transition: border-color 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.glass:hover {
+  border-color: rgba(186, 158, 255, 0.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    inset 0 0 40px rgba(186, 158, 255, 0.02);
+}
+
+.light .glass {
+  background: rgba(255, 255, 255, 0.55);
+  border: 0.5px solid rgba(0, 0, 0, 0.06);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.light .glass:hover {
+  border-color: rgba(124, 58, 237, 0.15);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 4px 20px rgba(124, 58, 237, 0.06);
+}
+
+/* ─── Aurora Blobs ─── */
+.aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px) url(#aurora-morph);
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+.light .aurora-blob {
+  mix-blend-mode: multiply;
+  filter: blur(120px) url(#aurora-morph);
+}
+
+/* Blob 1 — Electric violet: drifts right, floats down, breathes */
+.aurora-blob-1 {
+  animation:
+    aurora-drift-1 22s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate,
+    aurora-pulse-1 10s ease-in-out infinite;
+}
+
+/* Blob 2 — Vivid cyan: drifts left, floats up, pulses */
+.aurora-blob-2 {
+  animation:
+    aurora-drift-2 28s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate,
+    aurora-pulse-2 12s ease-in-out infinite;
+}
+
+/* Blob 3 — Hot pink: drifts right + up, morphs */
+.aurora-blob-3 {
+  animation:
+    aurora-drift-3 20s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate,
+    aurora-pulse-3 8s ease-in-out infinite;
+}
+
+/* Blob 4 — Deep blue: wide slow drift, subtle */
+.aurora-blob-4 {
+  animation:
+    aurora-drift-4 35s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate,
+    aurora-pulse-4 14s ease-in-out infinite;
+}
+
+/* Blob 5 — Emerald: drifts left, gentle pulse */
+.aurora-blob-5 {
+  animation:
+    aurora-drift-5 25s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate,
+    aurora-pulse-5 11s ease-in-out infinite;
+}
+
+/* ─── Aurora Drift Keyframes ─── */
+@keyframes aurora-drift-1 {
+  0%   { transform: translate(0, 0) scale(1) rotate(0deg); }
+  33%  { transform: translate(12vw, 3vh) scale(1.08) rotate(2deg); }
+  66%  { transform: translate(5vw, 6vh) scale(1.04) rotate(-1deg); }
+  100% { transform: translate(15vw, 4vh) scale(1.12) rotate(3deg); }
+}
+
+@keyframes aurora-drift-2 {
+  0%   { transform: translate(0, 0) scale(1) rotate(0deg); }
+  33%  { transform: translate(-10vw, -2vh) scale(1.06) rotate(-2deg); }
+  66%  { transform: translate(-4vw, 4vh) scale(1.1) rotate(1deg); }
+  100% { transform: translate(-14vw, 2vh) scale(1.05) rotate(-3deg); }
+}
+
+@keyframes aurora-drift-3 {
+  0%   { transform: translate(0, 0) scale(1) rotate(0deg); }
+  25%  { transform: translate(8vw, -5vh) scale(1.1) rotate(4deg); }
+  50%  { transform: translate(3vw, -8vh) scale(1.05) rotate(-2deg); }
+  75%  { transform: translate(10vw, -3vh) scale(1.12) rotate(3deg); }
+  100% { transform: translate(6vw, -6vh) scale(1.08) rotate(-1deg); }
+}
+
+@keyframes aurora-drift-4 {
+  0%   { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50%  { transform: translate(-6vw, 3vh) scale(1.06) rotate(2deg); }
+  100% { transform: translate(-10vw, 5vh) scale(1.1) rotate(-2deg); }
+}
+
+@keyframes aurora-drift-5 {
+  0%   { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50%  { transform: translate(-8vw, 3vh) scale(1.08) rotate(-3deg); }
+  100% { transform: translate(-12vw, -2vh) scale(1.04) rotate(2deg); }
+}
+
+/* ─── Aurora Pulse Keyframes ─── */
+@keyframes aurora-pulse-1 {
+  0%, 100% { opacity: 0.7; }
+  50%      { opacity: 1; }
+}
+
+@keyframes aurora-pulse-2 {
+  0%, 100% { opacity: 0.6; }
+  50%      { opacity: 0.95; }
+}
+
+@keyframes aurora-pulse-3 {
+  0%, 100% { opacity: 0.5; }
+  50%      { opacity: 0.9; }
+}
+
+@keyframes aurora-pulse-4 {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 0.85; }
+}
+
+@keyframes aurora-pulse-5 {
+  0%, 100% { opacity: 0.45; }
+  50%      { opacity: 0.8; }
+}
+
+/* ─── Light mode aurora adjustments ─── */
+.light .aurora-blob-1 { opacity: 0.35; }
+.light .aurora-blob-2 { opacity: 0.3; }
+.light .aurora-blob-3 { opacity: 0.25; }
+.light .aurora-blob-4 { opacity: 0.3; }
+
+
+/* ─── Grid Overlay with Intersection Dots ─── */
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    radial-gradient(circle, rgba(186, 158, 255, 0.08) 1px, transparent 1px);
+  background-size: 80px 80px, 80px 80px, 80px 80px;
+  background-position: 0 0, 0 0, 0 0;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 25%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 25%, transparent 100%);
+}
+
+.light .grid-overlay {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+    radial-gradient(circle, rgba(124, 58, 237, 0.06) 1px, transparent 1px);
+  background-size: 80px 80px, 80px 80px, 80px 80px;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 25%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 25%, transparent 100%);
+}
+
+/* ─── Noise Texture (Pure CSS Grain) ─── */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: repeating-conic-gradient(
+    rgba(255, 255, 255, 0.018) 0% 25%,
+    transparent 0% 50%
+  );
+  background-size: 2px 2px;
+  mix-blend-mode: overlay;
+}
+
+.light .noise-overlay {
+  opacity: 0.3;
+  background-image: repeating-conic-gradient(
+    rgba(0, 0, 0, 0.012) 0% 25%,
+    transparent 0% 50%
+  );
+}
+
+/* ─── Vignette ─── */
+.vignette {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 60% 60% at 50% 50%,
+    transparent 45%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+}
+
+.light .vignette {
+  background: radial-gradient(
+    ellipse 60% 60% at 50% 50%,
+    transparent 45%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+}
+
+/* ─── Neon Effects ─── */
+.neon-line {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, rgba(186, 158, 255, 0.2), transparent);
+  transition: opacity 0.6s ease;
+}
+
+.neon-dot {
+  width: 5px;
+  height: 5px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(186, 158, 255, 0.4), 0 0 12px rgba(186, 158, 255, 0.15);
+}
+
+.neon-text-glow {
+  text-shadow: 0 0 20px rgba(83, 221, 252, 0.3), 0 0 40px rgba(83, 221, 252, 0.1);
+}
+
+/* ─── Scrollbar ─── */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ─── Gradient Text ─── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary-dim) 0%, var(--color-primary) 50%, var(--color-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Premium Glow on Hover ─── */
+.glow-hover {
+  transition: box-shadow 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.glow-hover:hover {
+  box-shadow: 0 0 30px rgba(186, 158, 255, 0.15);
+}
+
+/* ─── Ambient glow for floating elements ─── */
+.ambient-shadow {
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.3), 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+.light .ambient-shadow {
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.08), 0 4px 24px rgba(0, 0, 0, 0.04);
+}
+
+/* ─── Light mode section borders ─── */
+.light section.border-t {
+  border-color: rgba(0, 0, 0, 0.05);
+}
+
+/* ─── Primary Button Glow ─── */
+.btn-primary-wrap {
+  position: relative;
+}
+
+.btn-primary-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(186, 158, 255, 0.4), rgba(83, 221, 252, 0.2), rgba(186, 158, 255, 0.4));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  filter: blur(12px);
+}
+
+.btn-primary-wrap:hover::before {
+  opacity: 1;
+}
+
+/* Inner shine that sweeps across the button */
+.btn-primary-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transition: left 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.btn-primary-wrap:hover::after {
+  left: 120%;
+}

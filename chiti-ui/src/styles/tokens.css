@@ -1,0 +1,183 @@
+/**
+ * CHITI UDS - MASTER DESIGN TOKEN ARCHITECTURE
+ * 
+ * Structure: Primitive → Semantic → Component
+ * 
+ * Do NOT use primitives directly in components.
+ * Always reference semantic aliases so theme-swapping works.
+ */
+
+/* ============================================================
+   LAYER 1: PRIMITIVE TOKENS (The raw color palette)
+   Never reference these directly in components.
+============================================================ */
+:root {
+  /* Color Palette */
+  --primitive-purple-100: hsl(260, 100%, 95%);
+  --primitive-purple-500: hsl(260, 100%, 65%);
+  --primitive-purple-700: hsl(260, 80%, 45%);
+
+  --primitive-cyan-500: hsl(190, 100%, 50%);
+
+  --primitive-neutral-0: hsl(0, 0%, 100%);
+  --primitive-neutral-50: hsl(220, 15%, 97%);
+  --primitive-neutral-100: hsl(220, 14%, 93%);
+  --primitive-neutral-200: hsl(220, 13%, 85%);
+  --primitive-neutral-500: hsl(220, 10%, 55%);
+  --primitive-neutral-900: hsl(220, 10%, 8%);
+  --primitive-neutral-950: hsl(220, 10%, 4%);
+
+  --primitive-green-500: hsl(150, 80%, 40%);
+  --primitive-amber-500: hsl(35, 90%, 50%);
+  --primitive-red-500: hsl(350, 80%, 55%);
+
+  /* DataViz safe tokens (colorblind accessible) */
+  --primitive-dv-sapphire: hsl(215, 90%, 55%);
+  --primitive-dv-teal: hsl(175, 80%, 45%);
+  --primitive-dv-amber: hsl(45, 95%, 60%);
+  --primitive-dv-rose: hsl(340, 80%, 65%);
+
+  /* Spacing — 8pt base grid */
+  --primitive-space-base: 8px;
+  --primitive-space-1x: calc(var(--primitive-space-base) * 0.5);  /* 4px  */
+  --primitive-space-2x: calc(var(--primitive-space-base) * 1);    /* 8px  */
+  --primitive-space-3x: calc(var(--primitive-space-base) * 2);    /* 16px */
+  --primitive-space-4x: calc(var(--primitive-space-base) * 3);    /* 24px */
+  --primitive-space-5x: calc(var(--primitive-space-base) * 4);    /* 32px */
+  --primitive-space-6x: calc(var(--primitive-space-base) * 6);    /* 48px */
+  --primitive-space-8x: calc(var(--primitive-space-base) * 8);    /* 64px */
+
+  /* Radius */
+  --primitive-radius-sm: 6px;
+  --primitive-radius-md: 12px;
+  --primitive-radius-lg: 24px;
+  --primitive-radius-pill: 9999px;
+
+  /* Typography */
+  --primitive-font-display: 'Outfit', sans-serif;
+  --primitive-font-body: 'Inter', sans-serif;
+  --primitive-font-mono: 'JetBrains Mono', monospace;
+
+  --primitive-size-xs: 0.75rem;
+  --primitive-size-sm: 0.875rem;
+  --primitive-size-md: 1rem;
+  --primitive-size-lg: 1.125rem;
+  --primitive-size-xl: 1.25rem;
+  --primitive-size-2xl: 1.5rem;
+  --primitive-size-3xl: 2rem;
+  --primitive-size-4xl: 2.8rem;
+  --primitive-size-hero: 4.5rem;
+
+  /* Motion */
+  --primitive-ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --primitive-ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --primitive-duration-fast: 150ms;
+  --primitive-duration-normal: 250ms;
+  --primitive-duration-slow: 400ms;
+}
+
+/* ============================================================
+   LAYER 2: SEMANTIC TOKENS — DEFAULT DARK THEME
+   These are what components use. Swap by overriding
+   these variables per [data-theme].
+============================================================ */
+:root,
+[data-theme="dark"] {
+  --color-bg-base: var(--primitive-neutral-950);
+  --color-surface-1: var(--primitive-neutral-900);
+  --color-surface-2: hsl(220, 10%, 12%);
+  --color-surface-3: hsl(220, 10%, 16%);
+
+  --color-text-primary: var(--primitive-neutral-0);
+  --color-text-secondary: var(--primitive-neutral-500);
+  --color-text-inverted: var(--primitive-neutral-950);
+
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-focus-ring: rgba(124, 58, 237, 0.8);
+
+  --color-brand-primary: var(--primitive-purple-500);
+  --color-brand-secondary: var(--primitive-cyan-500);
+
+  --color-semantic-success: var(--primitive-green-500);
+  --color-semantic-warning: var(--primitive-amber-500);
+  --color-semantic-error: var(--primitive-red-500);
+
+  --color-dv-1: var(--primitive-dv-sapphire);
+  --color-dv-2: var(--primitive-dv-teal);
+  --color-dv-3: var(--primitive-dv-amber);
+  --color-dv-4: var(--primitive-dv-rose);
+
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-elevated: 0 20px 60px rgba(0, 0, 0, 0.6);
+
+  --glass-bg: rgba(255, 255, 255, 0.03);
+}
+
+/* ============================================================
+   LAYER 2b: SEMANTIC TOKENS — LIGHT THEME OVERRIDES
+   Only the values that change need to be listed here.
+============================================================ */
+[data-theme="light"] {
+  --color-bg-base: var(--primitive-neutral-50);
+  --color-surface-1: var(--primitive-neutral-0);
+  --color-surface-2: var(--primitive-neutral-100);
+  --color-surface-3: var(--primitive-neutral-200);
+
+  --color-text-primary: hsl(220, 20%, 8%);
+  --color-text-secondary: hsl(220, 10%, 45%);
+  --color-text-inverted: var(--primitive-neutral-0);
+
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-focus-ring: rgba(124, 58, 237, 0.5);
+
+  --color-brand-primary: var(--primitive-purple-700);
+
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --shadow-elevated: 0 8px 30px rgba(0, 0, 0, 0.12);
+
+  --glass-bg: rgba(0, 0, 0, 0.02);
+}
+
+/* ============================================================
+   COMPONENT ALIASES — shorthand for direct use in TSX
+   These keep component code readable while still resolving
+   through the full Primitive→Semantic chain.
+============================================================ */
+:root,
+[data-density="default"] {
+  --density-multiplier: 1;
+}
+
+[data-density="compact"] {
+  --density-multiplier: 0.75;
+}
+
+[data-density="spacious"] {
+  --density-multiplier: 1.5;
+}
+
+/* Density-aware space aliases — placed in :root so they always exist */
+:root {
+  --space-1: calc(var(--primitive-space-1x) * var(--density-multiplier, 1));
+  --space-2: calc(var(--primitive-space-2x) * var(--density-multiplier, 1));
+  --space-3: calc(var(--primitive-space-3x) * var(--density-multiplier, 1));
+  --space-4: calc(var(--primitive-space-4x) * var(--density-multiplier, 1));
+  --space-5: calc(var(--primitive-space-5x) * var(--density-multiplier, 1));
+  --space-6: calc(var(--primitive-space-6x) * var(--density-multiplier, 1));
+  --space-8: calc(var(--primitive-space-8x) * var(--density-multiplier, 1));
+
+  --radius-sm: var(--primitive-radius-sm);
+  --radius-md: var(--primitive-radius-md);
+  --radius-lg: var(--primitive-radius-lg);
+  --radius-pill: var(--primitive-radius-pill);
+
+  --font-display: var(--primitive-font-display);
+  --font-body: var(--primitive-font-body);
+  --font-mono: var(--primitive-font-mono);
+
+  --ease-spring: var(--primitive-ease-spring);
+  --ease-smooth: var(--primitive-ease-smooth);
+  --duration-fast: var(--primitive-duration-fast);
+  --duration-normal: var(--primitive-duration-normal);
+  --duration-slow: var(--primitive-duration-slow);
+}
